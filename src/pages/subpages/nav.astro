@@ -1,3 +1,7 @@
+---
+
+---
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -24,7 +28,13 @@
             ><a href="#contact-me" class="link">Contact</a></button
         >
 
-        <img src="/images/great-britain.png" alt="" class="language-image" />
+        <button class="change-language" onclick="changeLanguage">
+            <img
+                src="/images/great-britain.png"
+                alt=""
+                class="language-image"
+            />
+        </button>
     </div>
 </header>
 
@@ -57,7 +67,7 @@
         align-items: center;
         background-color: white;
         border-radius: 10px;
-        padding: 10px;
+        padding: 13px;
         width: 30%;
         box-shadow: 0 0 10px white;
     }
@@ -107,13 +117,30 @@
     }
 
     .buttons-menu:hover {
-        color: #fff;
+        background-color: black;
+        border-radius: 10%;
+
+        .link {
+            color: white;
+        }
+    }
+
+    .languages-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.1rem;
     }
 
     .language-image {
         width: 30px;
         height: 30px;
         border-radius: 100%;
+    }
+
+    .arrow-down {
+        width: 15px;
+        height: 15px;
     }
 
     .link-main {
@@ -131,5 +158,11 @@
         width: 50px;
         height: 50px;
         border-radius: 100%;
+    }
+
+    .change-language {
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 </style>
