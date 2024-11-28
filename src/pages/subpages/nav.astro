@@ -13,20 +13,22 @@
 <header class="menu">
     <div class="nav-container">
         <a href="/" class="link-main">
-            <img src="/images/logo.png" alt="" class="logo-image" /></a
+            <img src="/images/logo.svg" alt="" class="logo-image" /></a
         >
 
-        <button class="buttons-menu"
-            ><a href="#about-me" class="link">About Me</a></button
-        >
+        <div class="options-container">
+            <button class="buttons" onclick="location.href='#about'"
+                >About Me
+            </button>
 
-        <button class="buttons-menu">
-            <a href="#projects" class="link">Projects </a></button
-        >
+            <button class="buttons" onclick="location.href='#projects'"
+                >Projects
+            </button>
 
-        <button class="buttons-menu"
-            ><a href="#contact" class="link">Contact</a></button
-        >
+            <button class="buttons" onclick="location.href='#contact'"
+                >Contact
+            </button>
+        </div>
 
         <button class="change-language" onclick="changeLanguage">
             <img
@@ -44,9 +46,10 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        position: fixed;
-        padding: 20px;
-        margin-bottom: 50px;
+        padding: 20px 0 10px 0;
+        background: rgba(0, 0, 0, 0.5);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .link {
@@ -65,11 +68,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: white;
         border-radius: 10px;
         padding: 13px;
-        width: 30%;
-        box-shadow: 0 0 10px white;
+        width: 80%;
     }
 
     nav {
@@ -105,20 +106,23 @@
         font-weight: 700;
     }
 
-    svg {
-        fill: black;
-    }
-
-    .buttons-menu {
+    .buttons {
         font-size: 1rem;
         background: none;
         border: none;
         cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 700;
     }
 
-    .buttons-menu:hover {
-        background-color: black;
-        border-radius: 10%;
+    .buttons:hover {
+        background-color: white;
+        border-radius: 5%;
+        color: black;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
 
         .link {
             color: white;
@@ -149,11 +153,6 @@
         font-style: normal;
     }
 
-    a {
-        text-decoration: none;
-        color: #fff;
-    }
-
     .memoji-image {
         width: 50px;
         height: 50px;
@@ -164,5 +163,12 @@
         background: none;
         border: none;
         cursor: pointer;
+    }
+
+    .options-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
     }
 </style>
