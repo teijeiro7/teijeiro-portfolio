@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import AboutMe from "./subpages/about-me.astro";
 import Nav from "./subpages/nav.astro";
 import Mode from "./subpages/light-mode.astro";
 import Contact from "./subpages/contact.astro";
+import Projects from "./subpages/projects.astro";
 ---
 
 <Layout title="Teijeiro7 | Bienvenido a mi PortFolio.">
@@ -24,7 +24,7 @@ import Contact from "./subpages/contact.astro";
 					/> | 20 years old
 					<h3 class="name">@teijeiro7</h3>
 				</div>
-				<div class="social-media">
+				<div class="social-media github">
 					<a
 						href="https://github.com/teijeiro7"
 						class="social-media-link"
@@ -44,7 +44,10 @@ import Contact from "./subpages/contact.astro";
 							></path>
 						</svg>
 					</a>
-					<a href="" class="social-media-link">
+					<a
+						href="https://www.linkedin.com/in/cristian-teijeiro-parga-24880630b"
+						class="social-media-link linkedin"
+					>
 						<svg
 							width="800px"
 							height="800px"
@@ -71,7 +74,7 @@ import Contact from "./subpages/contact.astro";
 					</a>
 					<a
 						href="https://www.instagram.com/teijeiro7/"
-						class="social-media-link"
+						class="social-media-link instagram"
 					>
 						<svg
 							width="800px"
@@ -105,22 +108,12 @@ import Contact from "./subpages/contact.astro";
 		<AboutMe />
 
 		<!-- Projects -->
-		<div class="projects-container">
-			<h2 class="titles" id="projects">Projects</h2>
-			<div class="projects">
-				<Card
-					href=""
-					title="World Padel Store"
-					body="World Padel Store is an online paddle store. In it, you can find everything you need to practice this sport."
-				/>
-				<Card
-					href=""
-					title="Monopoly Bank"
-					body="Monopoly Bank is a Java application that runs in the terminal. This application helps Monopoly enthusiasts to keep track of the income and expenses they incur during their Monopoly game."
-				/>
-			</div>
-		</div>
+		<Projects />
+
+		<!-- Contact me -->
 		<Contact />
+
+		<!-- Light/Dark mode -->
 		<Mode />
 	</main>
 </Layout>
