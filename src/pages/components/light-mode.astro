@@ -62,7 +62,7 @@
         select.value = systemTheme;
     }
 
-    function updateTheme(value) {
+    function updateTheme(value: string) {
         const theme = value === "system" ? systemTheme : value;
         document.documentElement.classList.remove("light", "dark");
         document.documentElement.classList.add(theme);
