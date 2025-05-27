@@ -15,7 +15,7 @@
     </nav>
 
     <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
         <svg
           class="sun-icon"
           width="20"
@@ -53,20 +53,15 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.9); /* Cambio: fondo negro semi-transparente */
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
   }
 
-  /* Modo claro - navbar blanco */
+  /* Modo claro - usar :global() para aplicar al html */
   :global(.light) .navbar {
-    background: rgba(
-      255,
-      255,
-      255,
-      0.95
-    ); /* Fondo blanco semi-transparente en modo claro */
+    background: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid var(--border);
   }
 
@@ -92,13 +87,26 @@
   }
 
   .logo-link:hover {
-    color: var(--accent); /* Cambio: usar rojo en lugar de accent-light */
+    color: var(--accent);
   }
 
   .logo-image {
     width: 32px;
     height: 32px;
+    transition: filter 0.3s ease;
   }
+
+  /* Invertir logo en modo claro si es necesario */
+  :global(.light) .logo-image {
+    filter: invert(1) brightness(0) saturate(100%);
+  }
+
+  /* Si tu logo es oscuro por defecto, usa esta regla en su lugar: */
+  /*
+  :global(.dark) .logo-image {
+    filter: invert(1) brightness(2);
+  }
+  */
 
   .nav-menu {
     display: flex;
@@ -115,7 +123,7 @@
   }
 
   .nav-link:hover {
-    color: var(--accent); /* Cambio: usar rojo en lugar de text-primary */
+    color: var(--accent);
   }
 
   .nav-link::after {
@@ -125,9 +133,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(
-      --accent
-    ); /* Cambio: usar rojo sólido en lugar de gradiente */
+    background: var(--accent);
     transition: width 0.3s ease;
   }
 
@@ -142,7 +148,7 @@
   }
 
   .theme-toggle {
-    background: transparent; /* Cambio: fondo transparente */
+    background: transparent;
     border: 1px solid var(--border);
     color: var(--text-secondary);
     padding: var(--space-xs);
@@ -157,12 +163,13 @@
   }
 
   .theme-toggle:hover {
-    background: var(--accent); /* Cambio: fondo rojo en hover */
-    color: white; /* Cambio: texto blanco en hover */
+    background: var(--accent);
+    color: white;
     border-color: var(--accent);
-    transform: translateY(-1px); /* Añadido: efecto de elevación */
+    transform: translateY(-1px);
   }
 
+  /* Iconos del tema - usar :global() para aplicar correctamente */
   .sun-icon {
     display: block;
   }
@@ -171,7 +178,6 @@
     display: none;
   }
 
-  /* Iconos del tema según el modo */
   :global(.dark) .sun-icon {
     display: none;
   }
@@ -188,7 +194,6 @@
     display: none;
   }
 
-  /* Mobile responsiveness */
   @media (max-width: 768px) {
     .nav-container {
       padding: 0 var(--space-sm);
@@ -203,21 +208,29 @@
     }
 
     .navbar {
-      background: rgba(
-        0,
-        0,
-        0,
-        0.95
-      ); /* Más opaco en móviles para mejor legibilidad */
+      background: rgba(0, 0, 0, 0.95);
     }
 
     :global(.light) .navbar {
-      background: rgba(
-        255,
-        255,
-        255,
-        0.98
-      ); /* Más opaco en móviles para mejor legibilidad */
+      background: rgba(255, 255, 255, 0.98);
     }
   }
 </style>
+
+<script>
+  const themeToggle = document.getElementById("theme-toggle");
+
+  function updateTheme(theme: string) {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }
+
+  themeToggle?.addEventListener("click", () => {
+    const currentTheme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    updateTheme(newTheme);
+  });
+</script>

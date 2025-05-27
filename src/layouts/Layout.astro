@@ -27,21 +27,51 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
+    <script>
+      // Sistema de tema unificado
+      function initTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+        const initialTheme = savedTheme || systemTheme;
+
+        document.documentElement.classList.remove("light", "dark");
+        document.documentElement.classList.add(initialTheme);
+      }
+
+      // Ejecutar inmediatamente para evitar flash
+      initTheme();
+
+      // Escuchar cambios en el tema del sistema
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.classList.remove("light", "dark");
+            document.documentElement.classList.add(
+              e.matches ? "dark" : "light"
+            );
+          }
+        });
+    </script>
   </body>
 </html>
+
 <style is:global>
   :root {
-    /* Color Palette - Red Theme */
-    --primary: #000000; /* Negro principal */
-    --secondary: #1a1a1a; /* Negro secundario */
-    --accent: #dc2626; /* Rojo principal */
-    --accent-light: #ef4444; /* Rojo claro */
+    /* Color Palette - Dark Mode (Negro y Rojo) */
+    --primary: #000000;
+    --secondary: #1a1a1a;
+    --accent: #dc2626;
+    --accent-light: #ef4444;
     --accent-gradient: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-    --text-primary: #ffffff; /* Texto principal blanco */
-    --text-secondary: #d1d5db; /* Texto secundario gris claro */
-    --border: #374151; /* Bordes grises */
-    --card-bg: #1a1a1a; /* Fondo de tarjetas */
-    --hover-bg: #2d2d2d; /* Fondo hover */
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --border: #374151;
+    --card-bg: #1a1a1a;
+    --hover-bg: #2d2d2d;
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -67,31 +97,31 @@ const { title } = Astro.props;
       0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
-  /* Modo claro - Blanco y Rojo */
-  :root.light {
-    --primary: #ffffff; /* Blanco principal */
-    --secondary: #f8fafc; /* Blanco secundario */
-    --accent: #dc2626; /* Rojo principal */
-    --accent-light: #ef4444; /* Rojo claro */
+  /* Light Mode (Blanco y Rojo) */
+  .light {
+    --primary: #ffffff;
+    --secondary: #f8fafc;
+    --accent: #dc2626;
+    --accent-light: #ef4444;
     --accent-gradient: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-    --text-primary: #111827; /* Texto principal negro */
-    --text-secondary: #6b7280; /* Texto secundario gris */
-    --border: #e5e7eb; /* Bordes grises claros */
-    --card-bg: #ffffff; /* Fondo de tarjetas blanco */
-    --hover-bg: #f3f4f6; /* Fondo hover gris muy claro */
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border: #e5e7eb;
+    --card-bg: #ffffff;
+    --hover-bg: #f3f4f6;
 
-    /* Sombras para modo claro */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    /* Sombras más visibles para modo claro */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.15),
       0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.25),
       0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
-  /* Modo oscuro - Negro y Rojo (por defecto) */
-  :root.dark {
+  /* Dark Mode explícito */
+  .dark {
     --primary: #000000;
     --secondary: #1a1a1a;
     --accent: #dc2626;
@@ -115,12 +145,20 @@ const { title } = Astro.props;
     background: var(--primary);
     color: var(--text-primary);
     scroll-behavior: smooth;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: var(--primary);
+    color: var(--text-primary);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   /* Scrollbar Styling */
