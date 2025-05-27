@@ -31,17 +31,17 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   :root {
-    /* Color Palette - Modern and Professional */
-    --primary: #0f172a;
-    --secondary: #1e293b;
-    --accent: #3b82f6;
-    --accent-light: #60a5fa;
-    --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --border: #334155;
-    --card-bg: #1e293b;
-    --hover-bg: #2d3748;
+    /* Color Palette - Red Theme */
+    --primary: #000000; /* Negro principal */
+    --secondary: #1a1a1a; /* Negro secundario */
+    --accent: #dc2626; /* Rojo principal */
+    --accent-light: #ef4444; /* Rojo claro */
+    --accent-gradient: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    --text-primary: #ffffff; /* Texto principal blanco */
+    --text-secondary: #d1d5db; /* Texto secundario gris claro */
+    --border: #374151; /* Bordes grises */
+    --card-bg: #1a1a1a; /* Fondo de tarjetas */
+    --hover-bg: #2d2d2d; /* Fondo hover */
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -65,6 +65,43 @@ const { title } = Astro.props;
       0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
       0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* Modo claro - Blanco y Rojo */
+  :root.light {
+    --primary: #ffffff; /* Blanco principal */
+    --secondary: #f8fafc; /* Blanco secundario */
+    --accent: #dc2626; /* Rojo principal */
+    --accent-light: #ef4444; /* Rojo claro */
+    --accent-gradient: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    --text-primary: #111827; /* Texto principal negro */
+    --text-secondary: #6b7280; /* Texto secundario gris */
+    --border: #e5e7eb; /* Bordes grises claros */
+    --card-bg: #ffffff; /* Fondo de tarjetas blanco */
+    --hover-bg: #f3f4f6; /* Fondo hover gris muy claro */
+
+    /* Sombras para modo claro */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* Modo oscuro - Negro y Rojo (por defecto) */
+  :root.dark {
+    --primary: #000000;
+    --secondary: #1a1a1a;
+    --accent: #dc2626;
+    --accent-light: #ef4444;
+    --accent-gradient: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --border: #374151;
+    --card-bg: #1a1a1a;
+    --hover-bg: #2d2d2d;
   }
 
   * {

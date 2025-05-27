@@ -10,7 +10,6 @@
     </a>
 
     <nav class="nav-menu">
-      <a href="#about" class="nav-link">About</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
@@ -54,10 +53,21 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(0, 0, 0, 0.9); /* Cambio: fondo negro semi-transparente */
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
+  }
+
+  /* Modo claro - navbar blanco */
+  :global(.light) .navbar {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); /* Fondo blanco semi-transparente en modo claro */
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-container {
@@ -82,7 +92,7 @@
   }
 
   .logo-link:hover {
-    color: var(--accent-light);
+    color: var(--accent); /* Cambio: usar rojo en lugar de accent-light */
   }
 
   .logo-image {
@@ -105,7 +115,7 @@
   }
 
   .nav-link:hover {
-    color: var(--text-primary);
+    color: var(--accent); /* Cambio: usar rojo en lugar de text-primary */
   }
 
   .nav-link::after {
@@ -115,7 +125,9 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-gradient);
+    background: var(
+      --accent
+    ); /* Cambio: usar rojo sólido en lugar de gradiente */
     transition: width 0.3s ease;
   }
 
@@ -130,7 +142,7 @@
   }
 
   .theme-toggle {
-    background: none;
+    background: transparent; /* Cambio: fondo transparente */
     border: 1px solid var(--border);
     color: var(--text-secondary);
     padding: var(--space-xs);
@@ -145,12 +157,34 @@
   }
 
   .theme-toggle:hover {
-    background: var(--hover-bg);
-    color: var(--text-primary);
+    background: var(--accent); /* Cambio: fondo rojo en hover */
+    color: white; /* Cambio: texto blanco en hover */
     border-color: var(--accent);
+    transform: translateY(-1px); /* Añadido: efecto de elevación */
+  }
+
+  .sun-icon {
+    display: block;
   }
 
   .moon-icon {
+    display: none;
+  }
+
+  /* Iconos del tema según el modo */
+  :global(.dark) .sun-icon {
+    display: none;
+  }
+
+  :global(.dark) .moon-icon {
+    display: block;
+  }
+
+  :global(.light) .sun-icon {
+    display: block;
+  }
+
+  :global(.light) .moon-icon {
     display: none;
   }
 
@@ -166,6 +200,24 @@
 
     .logo-text {
       display: none;
+    }
+
+    .navbar {
+      background: rgba(
+        0,
+        0,
+        0,
+        0.95
+      ); /* Más opaco en móviles para mejor legibilidad */
+    }
+
+    :global(.light) .navbar {
+      background: rgba(
+        255,
+        255,
+        255,
+        0.98
+      ); /* Más opaco en móviles para mejor legibilidad */
     }
   }
 </style>

@@ -151,8 +151,8 @@ import Projects from "./components/projects.astro";
     align-items: center;
     gap: var(--space-xs);
     padding: var(--space-xs) var(--space-sm);
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: rgba(220, 38, 38, 0.1); /* Cambio: rojo en lugar de azul */
+    border: 1px solid rgba(220, 38, 38, 0.2); /* Cambio: rojo en lugar de azul */
     border-radius: 9999px;
     width: fit-content;
     font-size: 0.875rem;
@@ -162,7 +162,7 @@ import Projects from "./components/projects.astro";
   .badge-dot {
     width: 8px;
     height: 8px;
-    background: #22c55e;
+    background: var(--accent); /* Cambio: usar color de acento rojo */
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
