@@ -103,7 +103,7 @@ import Projects from "./components/projects.astro";
         <div class="hero-image">
           <div class="image-container">
             <img
-              src="/images/me-laptop.png"
+              src="/images/profilephoto.png"
               alt="Cristian Teijeiro"
               class="profile-image"
             />
@@ -298,14 +298,14 @@ import Projects from "./components/projects.astro";
   .image-container {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 375px;
   }
 
   .profile-image {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     border: 4px solid var(--border);
     position: relative;
     z-index: 2;
