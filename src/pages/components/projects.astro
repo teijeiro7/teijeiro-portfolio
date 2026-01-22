@@ -17,18 +17,25 @@ import Project from "../../components/Project.astro";
 
     <div class="projects-grid">
       <Project
-        title="World Padel Store"
-        body="A comprehensive e-commerce platform designed specifically for padel equipment. Features include responsive design, shopping cart functionality, user authentication, product catalog with filtering, and secure checkout process."
+        title="FitMyCV"
+        body="FitMyCV es una plataforma web que utiliza inteligencia artificial para adaptar automáticamente currículums a ofertas de trabajo específicas. Permite a los usuarios cargar sus CV, seleccionar repositorios de GitHub, integrar perfiles de LinkedIn, y genera versiones personalizadas optimizadas para cada posición. Soporta autenticación OAuth con Google y GitHub, extracción inteligente de habilidades mediante NLP, y generación de documentos en Word con adaptaciones contextuales. El sistema web está construido con React y TypeScript en el frontend, mientras que el backend usa FastAPI con Python para procesar documentos y hacer scraping inteligente de ofertas laborales."
         deploy=""
         repo="https://github.com/teijeiro7/WPS.git"
-        image="/images/wps.png"
-        technologies={["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"]}
+        image="/images/fitmycv.png"
+        technologies={[
+          "React",
+          "Vite",
+          "Tailwind",
+          "PostgreSQL",
+          "Python",
+          "OpenRouter",
+        ]}
         featured={true}
       />
       <Project
         title="Smashly - Padel App"
         body="A web application (later mobile as well) that allows players to find their ideal paddle or compare between other paddles"
-        deploy="https://smashly-app.vercel.app/"
+        deploy="https://smashly-app.es"
         repo="https://github.com/teijeiro7/smashly-app"
         image="/images/smashly.png"
         technologies={["React", "Vite", "IA"]}
