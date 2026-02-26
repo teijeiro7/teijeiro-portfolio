@@ -8,13 +8,11 @@
       <div class="contact-info">
         <div class="section-header">
           <div class="section-badge">
-            <span class="badge-text">Get in Touch</span>
+            <span class="badge-text" data-i18="contact.badge">Get in Touch</span>
           </div>
-          <h2 class="section-title">Let's Work Together</h2>
-          <p class="section-description">
-            I'm always interested in new opportunities and exciting projects.
-            Whether you have a question or just want to say hi, feel free to
-            reach out!
+          <h2 class="section-title" data-i18="contact.title">Let's Work Together</h2>
+          <p class="section-description" data-i18="contact.description">
+            I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!
           </p>
         </div>
 
@@ -36,11 +34,12 @@
               </svg>
             </div>
             <div class="method-info">
-              <h3>Email</h3>
+              <h3 data-i18="contact.email">Email</h3>
               <p>teijeiroparga@outlook.com</p>
               <button
                 class="copy-email-btn"
                 data-email="teijeiroparga@outlook.com"
+                data-i18-btn="contact.copyEmail"
               >
                 <svg
                   width="16"
@@ -75,9 +74,9 @@
               </svg>
             </div>
             <div class="method-info">
-              <h3>Location</h3>
-              <p>Madrid, Spain</p>
-              <span class="availability">Available for remote work</span>
+              <h3 data-i18="contact.location">Location</h3>
+              <p data-i18="hero.location">Madrid, Spain</p>
+              <span class="availability" data-i18="contact.availableRemote">Available for remote work</span>
             </div>
           </div>
         </div>
@@ -86,7 +85,7 @@
       <!-- Columna derecha para redes sociales -->
       <div class="social-section">
         <div class="social-links">
-          <h3>Find me on</h3>
+          <h3 data-i18="contact.findMeOn">Find me on</h3>
           <div class="social-grid">
             <a
               href="https://github.com/teijeiro7"
@@ -496,6 +495,41 @@
 </style>
 
 <script>
+  type Language = 'es' | 'en';
+
+  const translations = {
+    es: {
+      copyEmail: 'Copiar Email',
+      copied: '¡Copiado!',
+    },
+    en: {
+      copyEmail: 'Copy Email',
+      copied: 'Copied!',
+    },
+  };
+
+  function getTranslation(key: string, lang: Language): string {
+    const keys = key.split('.');
+    let value: any = translations[lang];
+    for (const k of keys) {
+      value = value?.[k];
+    }
+    return value || key;
+  }
+
+  function updateAboutMeTranslations(lang: Language) {
+    const copyBtn = document.querySelector('.copy-email-btn') as HTMLButtonElement;
+    if (copyBtn) {
+      const currentText = copyBtn.textContent?.trim();
+      if (currentText === 'Copy Email' || currentText === 'Copied!') {
+        const svg = copyBtn.querySelector('svg');
+        copyBtn.innerHTML = '';
+        if (svg) copyBtn.appendChild(svg);
+        copyBtn.appendChild(document.createTextNode(' ' + getTranslation('copyEmail', lang)));
+      }
+    }
+  }
+
   // Funcionalidad para copiar email
   document.addEventListener("DOMContentLoaded", () => {
     const copyBtn = document.querySelector(".copy-email-btn");
@@ -506,13 +540,13 @@
         try {
           await navigator.clipboard.writeText(email);
 
-          // Feedback visual
+          const lang = (localStorage.getItem('language') as Language) || 'en';
           const originalText = copyBtn.innerHTML;
           copyBtn.innerHTML = `
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="20,6 9,17 4,12"></polyline>
             </svg>
-            Copied!
+            ${getTranslation('copied', lang)}
           `;
 
           setTimeout(() => {
@@ -524,4 +558,12 @@
       }
     });
   });
+
+  window.addEventListener('languagechange', ((e: Event) => {
+    const customEvent = e as CustomEvent;
+    updateAboutMeTranslations(customEvent.detail.language);
+  }) as EventListener);
+
+  const savedLanguage = (localStorage.getItem('language') as Language) || 'en';
+  updateAboutMeTranslations(savedLanguage);
 </script>

@@ -9,12 +9,48 @@
     </a>
 
     <nav class="nav-menu" id="nav-menu">
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#experience" class="nav-link" data-i18="nav.experience"
+        >Experience</a
+      >
+      <a href="#projects" class="nav-link" data-i18="nav.projects">Projects</a>
+      <a href="#contact" class="nav-link" data-i18="nav.contact">Contact</a>
     </nav>
 
     <div class="nav-actions">
+      <div class="language-toggle" id="language-toggle">
+        <button class="lang-btn" data-lang="es" aria-label="Español">
+          <svg class="flag" viewBox="0 0 750 500" width="20" height="14">
+            <rect width="750" height="500" fill="#c60b1e"></rect>
+            <rect y="125" width="750" height="250" fill="#ffc400"></rect>
+          </svg>
+        </button>
+        <button class="lang-btn active" data-lang="en" aria-label="English">
+          <svg class="flag" viewBox="0 0 60 30" width="20" height="14">
+            <clipPath id="s">
+              <path d="M0,0 v30 h60 v-30 z"></path>
+            </clipPath>
+            <clipPath id="t">
+              <path d="M30,15 h30 v15 z v-30 h-30 z h-30 v15 z v-15 h30 z"
+              ></path>
+            </clipPath>
+            <g clip-path="url(#s)">
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"></path>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"
+              ></path>
+              <path
+                d="M0,0 L60,30 M60,0 L0,30"
+                clip-path="url(#t)"
+                stroke="#C8102E"
+                stroke-width="4"></path>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"
+              ></path>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"
+              ></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
         <svg
           class="sun-icon"
@@ -43,7 +79,11 @@
         </svg>
       </button>
 
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+      <button
+        class="mobile-menu-toggle"
+        id="mobile-menu-toggle"
+        aria-label="Toggle menu"
+      >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -184,6 +224,47 @@
     gap: var(--space-sm);
   }
 
+  .language-toggle {
+    display: flex;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .lang-btn:hover {
+    background: var(--hover-bg);
+  }
+
+  .lang-btn.active {
+    background: var(--accent);
+  }
+
+  .lang-btn .flag {
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  .lang-btn:hover .flag {
+    transform: scale(1.15);
+  }
+
+  .theme-toggle {
+    background: var(--hover-bg);
+    color: var(--accent);
+  }
+
   .theme-toggle {
     background: transparent;
     border: 1px solid var(--border);
@@ -231,7 +312,6 @@
     display: none;
   }
 
-  /* Mobile Menu Toggle */
   .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -275,7 +355,6 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Mobile Menu Backdrop */
   .mobile-menu-backdrop {
     display: none;
     position: fixed;
@@ -296,7 +375,6 @@
     visibility: visible;
   }
 
-  /* Mobile Styles */
   @media (max-width: 768px) {
     .nav-container {
       padding: 0 var(--space-sm);
@@ -365,10 +443,76 @@
     :global(.light) .navbar {
       background: rgba(255, 255, 255, 0.98);
     }
+
+    .language-toggle {
+      display: none;
+    }
+
+    .nav-actions {
+      gap: 4px;
+    }
   }
 </style>
 
 <script>
+  import {
+    translations,
+    type Language,
+    type Translations,
+  } from "../../i18n/translations";
+
+  translations["en"]; // Initialize translations
+
+  function getNestedValue(obj: any, path: string): string {
+    return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+  }
+
+  function updatePageTranslations(lang: Language) {
+    const elements = document.querySelectorAll("[data-i18]");
+    elements.forEach((el) => {
+      const key = el.getAttribute("data-i18");
+      if (key) {
+        const text = getNestedValue(translations[lang], key);
+        if (text) {
+          el.textContent = text;
+        }
+      }
+    });
+  }
+
+  // Language Toggle with flags
+  const languageToggle = document.querySelector(".language-toggle");
+  const langButtons = languageToggle?.querySelectorAll(".lang-btn");
+
+  function setLanguage(lang: Language) {
+    localStorage.setItem("language", lang);
+
+    langButtons?.forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+
+    updatePageTranslations(lang);
+
+    document.documentElement.lang = lang;
+
+    window.dispatchEvent(
+      new CustomEvent("languagechange", { detail: { language: lang } }),
+    );
+  }
+
+  // Language button click
+  langButtons?.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-lang") as Language;
+      setLanguage(lang);
+    });
+  });
+
+  // Initialize language from localStorage or default to English
+  const savedLanguage = localStorage.getItem("language") as Language | null;
+  const initialLanguage = savedLanguage || "en";
+  setLanguage(initialLanguage);
+
   // Theme Toggle
   const themeToggle = document.getElementById("theme-toggle");
 
@@ -407,7 +551,9 @@
     mobileMenuToggle?.classList.toggle("active");
     navMenu?.classList.toggle("active");
     mobileBackdrop?.classList.toggle("active");
-    document.body.style.overflow = navMenu?.classList.contains("active") ? "hidden" : "";
+    document.body.style.overflow = navMenu?.classList.contains("active")
+      ? "hidden"
+      : "";
   }
 
   mobileMenuToggle?.addEventListener("click", toggleMobileMenu);
@@ -421,10 +567,15 @@
     });
   });
 
-  // Close menu on escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && navMenu?.classList.contains("active")) {
       toggleMobileMenu();
     }
   });
+
+  // Listen for language changes from other components
+  window.addEventListener("languagechange", ((e: Event) => {
+    const customEvent = e as CustomEvent;
+    setLanguage(customEvent.detail.language);
+  }) as EventListener);
 </script>

@@ -6,12 +6,11 @@ import Project from "../../components/Project.astro";
   <div class="container">
     <div class="section-header">
       <div class="section-badge">
-        <span class="badge-text">Portfolio</span>
+        <span class="badge-text" data-i18="projects.badge">Portfolio</span>
       </div>
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-description">
-        A showcase of my recent work and personal projects, demonstrating my
-        skills in web development and software engineering.
+      <h2 class="section-title" data-i18="projects.title">Featured Projects</h2>
+      <p class="section-description" data-i18="projects.description">
+        A showcase of my recent work and personal projects, demonstrating my skills in web development and software engineering.
       </p>
     </div>
 
@@ -20,7 +19,7 @@ import Project from "../../components/Project.astro";
         title="FitMyCV"
         body="FitMyCV is an AI-powered platform that automatically adapts resumes to job offers by integrating GitHub and LinkedIn profiles with intelligent skill extraction."
         deploy=""
-        repo="https://github.com/teijeiro7/WPS.git"
+        repo="https://github.com/teijeiro7/fitmycv"
         image="/images/fitmycv.png"
         technologies={[
           "React",
@@ -35,7 +34,7 @@ import Project from "../../components/Project.astro";
       <Project
         title="Smashly - Padel App"
         body="A web application (later mobile as well) that allows players to find their ideal paddle or compare between other paddles"
-        repo="https://github.com/teijeiro7/smashly-app"
+        repo="https://github.com/codeurjc-students/2025-Smashlyapp"
         image="/images/smashly.png"
         technologies={[
           "React",
@@ -56,6 +55,7 @@ import Project from "../../components/Project.astro";
         target="_blank"
         rel="noopener noreferrer"
         class="view-all-btn"
+        data-i18="projects.viewAll"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path

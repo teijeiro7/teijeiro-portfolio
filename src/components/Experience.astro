@@ -1,38 +1,57 @@
 ---
-interface Experience {
+interface ExperienceItem {
   company: string;
   role: string;
+  roleEs: string;
   period: string;
+  periodEs: string;
   description: string[];
+  descriptionEs: string[];
   logo: string;
 }
 
-const experiences: Experience[] = [
+const experiences: ExperienceItem[] = [
   {
     company: "Apple",
     role: "Sales Specialist",
+    roleEs: "Especialista de Ventas",
     period: "July 2025 - January 2026",
+    periodEs: "Julio 2025 - Enero 2026",
     description: [
       "Development of interpersonal skills when explaining technological solutions to users, focusing on simplifying complex concepts.",
+    ],
+    descriptionEs: [
+      "Desarrollo de habilidades interpersonales al explicar soluciones tecnológicas a los usuarios, enfocándose en simplificar conceptos complejos.",
     ],
     logo: "/images/apple.png",
   },
   {
     company: "PwC",
     role: "Digital Assurance Intern",
+    roleEs: "Becario de Assurance Digital",
     period: "October 2025 - February 2026",
+    periodEs: "Octubre 2025 - Febrero 2026",
     description: [
       "I participated in Big Data validation at Santander Digital Services using the Aura tool, learning the importance of regulatory compliance in large-scale data.",
       "I contributed to the drafting of technical guides to facilitate understanding of internal processes within the team.",
+    ],
+    descriptionEs: [
+      "Participé en la validación de Big Data en Santander Digital Services usando la herramienta Aura, aprendiendo la importancia del cumplimiento normativo en datos a gran escala.",
+      "Contribuí a la redacción de guías técnicas para facilitar la comprensión de los procesos internos dentro del equipo.",
     ],
     logo: "/images/pwc.png",
   },
   {
     company: "CE Futsal Pardillo",
     role: "Futsal Coach",
+    roleEs: "Entrenador de Futsal",
     period: "September 2022 - June 2025",
+    periodEs: "Septiembre 2022 - Junio 2025",
     description: [
       "Coordination of groups and communication with families, developing leadership and organisational skills.",
+    ],
+    descriptionEs: [
+      "Coordinación de grupos y comunicación con familias, desarrollando habilidades de liderazgo y organización.",
     ],
     logo: "/images/ce_futsal_pardillo.png",
   },
@@ -43,12 +62,11 @@ const experiences: Experience[] = [
   <div class="container">
     <div class="section-header">
       <div class="section-badge">
-        <span class="badge-text">Background</span>
+        <span class="badge-text" data-i18="experience.badge">Background</span>
       </div>
-      <h2 class="section-title">Work Experience</h2>
-      <p class="section-description">
-        My professional journey through different roles and industries, building
-        skills that complement my technical expertise.
+      <h2 class="section-title" data-i18="experience.title">Work Experience</h2>
+      <p class="section-description" data-i18="experience.description">
+        My professional journey through different roles and industries, building skills that complement my technical expertise.
       </p>
     </div>
 
@@ -60,10 +78,10 @@ const experiences: Experience[] = [
               <img src={exp.logo} alt={`${exp.company} logo`} />
             </div>
             <div class="card-header-info">
-              <h3 class="role-title">{exp.role}</h3>
+              <h3 class="role-title" data-i18-role>{exp.role}</h3>
               <p class="company-name">{exp.company}</p>
             </div>
-            <div class="period-badge">
+            <div class="period-badge" data-i18-period>
               <svg
                 width="14"
                 height="14"
@@ -81,8 +99,8 @@ const experiences: Experience[] = [
             </div>
           </div>
           <div class="card-body">
-            <ul class="description-list">
-              {exp.description.map((desc) => (
+            <ul class="description-list" data-i18-desc>
+              {exp.description.map((desc: string) => (
                 <li>{desc}</li>
               ))}
             </ul>
@@ -92,6 +110,83 @@ const experiences: Experience[] = [
     </div>
   </div>
 </section>
+
+<script>
+  const experiencesData = [
+    {
+      role: "Sales Specialist",
+      roleEs: "Especialista de Ventas",
+      period: "July 2025 - January 2026",
+      periodEs: "Julio 2025 - Enero 2026",
+      description: [
+        "Development of interpersonal skills when explaining technological solutions to users, focusing on simplifying complex concepts.",
+      ],
+      descriptionEs: [
+        "Desarrollo de habilidades interpersonales al explicar soluciones tecnológicas a los usuarios, enfocándose en simplificar conceptos complejos.",
+      ],
+    },
+    {
+      role: "Digital Assurance Intern",
+      roleEs: "Becario de Assurance Digital",
+      period: "October 2025 - February 2026",
+      periodEs: "Octubre 2025 - Febrero 2026",
+      description: [
+        "I participated in Big Data validation at Santander Digital Services using the Aura tool, learning the importance of regulatory compliance in large-scale data.",
+        "I contributed to the drafting of technical guides to facilitate understanding of internal processes within the team.",
+      ],
+      descriptionEs: [
+        "Participé en la validación de Big Data en Santander Digital Services usando la herramienta Aura, aprendiendo la importancia del cumplimiento normativo en datos a gran escala.",
+        "Contribuí a la redacción de guías técnicas para facilitar la comprensión de los procesos internos dentro del equipo.",
+      ],
+    },
+    {
+      role: "Futsal Coach",
+      roleEs: "Entrenador de Futsal",
+      period: "September 2022 - June 2025",
+      periodEs: "Septiembre 2022 - Junio 2025",
+      description: [
+        "Coordination of groups and communication with families, developing leadership and organisational skills.",
+      ],
+      descriptionEs: [
+        "Coordinación de grupos y comunicación con familias, desarrollando habilidades de liderazgo y organización.",
+      ],
+    },
+  ];
+
+  type Language = 'es' | 'en';
+
+  function updateExperienceTranslations(lang: Language) {
+    const elements = document.querySelectorAll('[data-i18-role]');
+    elements.forEach((el, index) => {
+      const exp = experiencesData[index];
+      el.textContent = lang === 'es' ? exp.roleEs : exp.role;
+    });
+
+    const periodElements = document.querySelectorAll('[data-i18-period]');
+    periodElements.forEach((el, index) => {
+      const exp = experiencesData[index];
+      const span = el.querySelector('span');
+      if (span) {
+        span.textContent = lang === 'es' ? exp.periodEs : exp.period;
+      }
+    });
+
+    const descElements = document.querySelectorAll('[data-i18-desc]');
+    descElements.forEach((el, index) => {
+      const exp = experiencesData[index];
+      const descriptions = lang === 'es' ? exp.descriptionEs : exp.description;
+      el.innerHTML = descriptions.map((desc: string) => `<li>${desc}</li>`).join('');
+    });
+  }
+
+  window.addEventListener('languagechange', ((e: Event) => {
+    const customEvent = e as CustomEvent;
+    updateExperienceTranslations(customEvent.detail.language);
+  }) as EventListener);
+
+  const savedLanguage = (localStorage.getItem('language') as Language) || 'en';
+  updateExperienceTranslations(savedLanguage);
+</script>
 
 <style>
   .experience-section {
