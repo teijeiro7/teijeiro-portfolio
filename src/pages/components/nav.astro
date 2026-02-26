@@ -2,14 +2,15 @@
 
 ---
 
-<header class="navbar">
+<header class="navbar" id="navbar">
   <div class="nav-container">
     <a href="/" class="logo-link">
       <img src="/images/logo.svg" alt="Cristian Teijeiro" class="logo-image" />
       <span class="logo-text">Teijeiro</span>
     </a>
 
-    <nav class="nav-menu">
+    <nav class="nav-menu" id="nav-menu">
+      <a href="#experience" class="nav-link">Experience</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
@@ -42,9 +43,17 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </div>
 </header>
+
+<div class="mobile-menu-backdrop" id="mobile-backdrop"></div>
 
 <style>
   .navbar {
@@ -53,16 +62,44 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: navSlideDown 0.6s ease-out;
   }
 
-  /* Modo claro - usar :global() para aplicar al html */
-  :global(.light) .navbar {
-    background: rgba(255, 255, 255, 0.95);
+  @keyframes navSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  :global(.light) .navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  :global(.light) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   }
 
   .nav-container {
@@ -83,43 +120,43 @@
     color: var(--text-primary);
     font-weight: 700;
     font-size: 1.25rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   .logo-link:hover {
     color: var(--accent);
+    transform: translateX(4px);
   }
 
   .logo-image {
     width: 32px;
     height: 32px;
-    transition: filter 0.3s ease;
+    transition: all 0.3s ease;
   }
 
-  /* Invertir logo en modo claro si es necesario */
   :global(.light) .logo-image {
     filter: invert(1) brightness(0) saturate(100%);
   }
 
-  /* Si tu logo es oscuro por defecto, usa esta regla en su lugar: */
-  /*
-  :global(.dark) .logo-image {
-    filter: invert(1) brightness(2);
+  .logo-link:hover .logo-image {
+    transform: rotate(-10deg) scale(1.1);
   }
-  */
 
   .nav-menu {
     display: flex;
     gap: var(--space-xl);
+    align-items: center;
   }
 
   .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
     position: relative;
     padding: var(--space-xs) 0;
+    letter-spacing: 0.3px;
   }
 
   .nav-link:hover {
@@ -133,8 +170,9 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .nav-link:hover::after {
@@ -166,10 +204,10 @@
     background: var(--accent);
     color: white;
     border-color: var(--accent);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
   }
 
-  /* Iconos del tema - usar :global() para aplicar correctamente */
   .sun-icon {
     display: block;
   }
@@ -194,13 +232,127 @@
     display: none;
   }
 
+  /* Mobile Menu Toggle */
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px;
+  }
+
+  .mobile-menu-toggle:hover {
+    background: var(--hover-bg);
+    border-color: var(--accent);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile Menu Backdrop */
+  .mobile-menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 90;
+  }
+
+  .mobile-menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile Styles */
   @media (max-width: 768px) {
     .nav-container {
       padding: 0 var(--space-sm);
     }
 
     .nav-menu {
-      gap: var(--space-md);
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--secondary);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 0;
+      padding: var(--space-md);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 95;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    :global(.light) .nav-menu {
+      background: var(--card-bg);
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-link {
+      width: 100%;
+      text-align: center;
+      padding: var(--space-md);
+      font-size: 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-link:last-child {
+      border-bottom: none;
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+    }
+
+    .mobile-menu-backdrop {
+      display: block;
     }
 
     .logo-text {
@@ -218,6 +370,7 @@
 </style>
 
 <script>
+  // Theme Toggle
   const themeToggle = document.getElementById("theme-toggle");
 
   function updateTheme(theme: string) {
@@ -232,5 +385,47 @@
       : "light";
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     updateTheme(newTheme);
+  });
+
+  // Scroll Effect
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add("scrolled");
+    } else {
+      navbar?.classList.remove("scrolled");
+    }
+  });
+
+  // Mobile Menu
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
+  const mobileBackdrop = document.getElementById("mobile-backdrop");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function toggleMobileMenu() {
+    mobileMenuToggle?.classList.toggle("active");
+    navMenu?.classList.toggle("active");
+    mobileBackdrop?.classList.toggle("active");
+    document.body.style.overflow = navMenu?.classList.contains("active") ? "hidden" : "";
+  }
+
+  mobileMenuToggle?.addEventListener("click", toggleMobileMenu);
+  mobileBackdrop?.addEventListener("click", toggleMobileMenu);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navMenu?.classList.contains("active")) {
+        toggleMobileMenu();
+      }
+    });
+  });
+
+  // Close menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navMenu?.classList.contains("active")) {
+      toggleMobileMenu();
+    }
   });
 </script>

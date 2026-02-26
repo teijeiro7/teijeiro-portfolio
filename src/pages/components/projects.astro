@@ -185,6 +185,17 @@ import Project from "../../components/Project.astro";
     left: 0;
   }
 
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+  }
+
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
@@ -195,11 +206,69 @@ import Project from "../../components/Project.astro";
       padding: 14px 24px;
       font-size: 0.95rem;
     }
+
+    .section-title {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
   }
 
   @media (max-width: 480px) {
+    .projects-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .container {
+      padding: 0 var(--space-sm);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .section-description {
+      font-size: 0.9rem;
+    }
+
+    .section-badge {
+      padding: 4px 10px;
+    }
+
+    .badge-text {
+      font-size: 0.75rem;
+    }
+
+    .view-all-btn {
+      padding: 12px 20px;
+      font-size: 0.875rem;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .view-all-btn svg:first-child {
+      display: none;
+    }
+
+    .section-footer {
+      padding-top: var(--space-lg);
+    }
+  }
+
+  @media (max-width: 360px) {
     .projects-grid {
-      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .view-all-btn {
+      padding: 10px 16px;
+      font-size: 0.8rem;
     }
   }
 </style>

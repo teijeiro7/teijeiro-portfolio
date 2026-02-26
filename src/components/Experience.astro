@@ -1,0 +1,369 @@
+---
+interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string[];
+  logo: string;
+}
+
+const experiences: Experience[] = [
+  {
+    company: "Apple",
+    role: "Sales Specialist",
+    period: "July 2025 - January 2026",
+    description: [
+      "Development of interpersonal skills when explaining technological solutions to users, focusing on simplifying complex concepts.",
+    ],
+    logo: "/images/apple.png",
+  },
+  {
+    company: "PwC",
+    role: "Digital Assurance Intern",
+    period: "October 2025 - February 2026",
+    description: [
+      "I participated in Big Data validation at Santander Digital Services using the Aura tool, learning the importance of regulatory compliance in large-scale data.",
+      "I contributed to the drafting of technical guides to facilitate understanding of internal processes within the team.",
+    ],
+    logo: "/images/pwc.png",
+  },
+  {
+    company: "CE Futsal Pardillo",
+    role: "Futsal Coach",
+    period: "September 2022 - June 2025",
+    description: [
+      "Coordination of groups and communication with families, developing leadership and organisational skills.",
+    ],
+    logo: "/images/ce_futsal_pardillo.png",
+  },
+];
+---
+
+<section class="experience-section" id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">
+        <span class="badge-text">Background</span>
+      </div>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-description">
+        My professional journey through different roles and industries, building
+        skills that complement my technical expertise.
+      </p>
+    </div>
+
+    <div class="experience-timeline">
+      {experiences.map((exp) => (
+        <article class="experience-card">
+          <div class="card-header">
+            <div class="company-logo">
+              <img src={exp.logo} alt={`${exp.company} logo`} />
+            </div>
+            <div class="card-header-info">
+              <h3 class="role-title">{exp.role}</h3>
+              <p class="company-name">{exp.company}</p>
+            </div>
+            <div class="period-badge">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>{exp.period}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="description-list">
+              {exp.description.map((desc) => (
+                <li>{desc}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    padding: var(--space-2xl) 0;
+    background: var(--primary);
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-radius: 9999px;
+    margin-bottom: var(--space-md);
+  }
+
+  .badge-text {
+    font-size: 0.875rem;
+    color: var(--accent-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .experience-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: all 0.3s ease;
+  }
+
+  .experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1),
+      0 0 0 1px var(--accent);
+    border-color: var(--accent);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .company-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  .company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+  }
+
+  .card-header-info {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .role-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .company-name {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin: 4px 0 0;
+  }
+
+  .period-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-radius: var(--radius-sm);
+    color: var(--accent-light);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .period-badge svg {
+    flex-shrink: 0;
+  }
+
+  .card-body {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+
+  .description-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .description-list li {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: var(--space-md);
+    position: relative;
+  }
+
+  .description-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  @media (max-width: 1024px) {
+    .experience-card {
+      padding: var(--space-md);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .experience-card {
+      padding: var(--space-md);
+    }
+
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .card-header-info {
+      width: 100%;
+    }
+
+    .period-badge {
+      align-self: flex-start;
+    }
+
+    .company-logo {
+      width: 48px;
+      height: 48px;
+    }
+
+    .role-title {
+      font-size: 1.125rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .experience-card {
+      padding: var(--space-sm);
+    }
+
+    .company-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .role-title {
+      font-size: 1rem;
+    }
+
+    .company-name {
+      font-size: 0.9rem;
+    }
+
+    .period-badge {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+    }
+
+    .description-list li {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding-left: var(--space-sm);
+    }
+
+    .description-list li::before {
+      top: 8px;
+      width: 5px;
+      height: 5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 5vw, 2rem);
+    }
+
+    .section-description {
+      font-size: 0.9rem;
+    }
+
+    .section-badge {
+      padding: 4px 10px;
+    }
+
+    .badge-text {
+      font-size: 0.75rem;
+    }
+  }
+</style>

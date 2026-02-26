@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import AboutMe from "./components/about-me.astro";
 import Nav from "./components/nav.astro";
 import Projects from "./components/projects.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <Layout title="Cristian Teijeiro | Software Engineer Portfolio">
@@ -23,9 +24,15 @@ import Projects from "./components/projects.astro";
           </h1>
 
           <p class="hero-subtitle">
-            Software Engineering student passionate about creating modern web
-            applications. Currently in my 3rd year at Rey Juan Carlos
-            University.
+            Full-Stack Developer | Last-year Software Engineering Student at
+            URJC
+          </p>
+
+          <p class="hero-text">
+            Up-and-coming software engineer with a solid technical foundation
+            and a ‘builder’ mindset. Specialised in creating efficient solutions
+            and integrating AI to solve real-world problems. Seeking technical
+            challenges and high-impact collaborations.
           </p>
 
           <div class="hero-stats">
@@ -114,6 +121,7 @@ import Projects from "./components/projects.astro";
     </section>
 
     <AboutMe />
+    <Experience />
     <Projects />
   </main>
 </Layout>
@@ -193,9 +201,19 @@ import Projects from "./components/projects.astro";
 
   .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    font-weight: 500;
+    color: var(--accent-light);
     line-height: 1.6;
-    max-width: 500px;
+    margin: 0;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0;
+    opacity: 0.9;
   }
 
   .hero-stats {
@@ -336,6 +354,16 @@ import Projects from "./components/projects.astro";
   }
 
   /* Mobile responsiveness */
+  @media (max-width: 1024px) {
+    .hero-container {
+      gap: var(--space-xl);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+  }
+
   @media (max-width: 768px) {
     .hero-container {
       grid-template-columns: 1fr;
@@ -343,9 +371,36 @@ import Projects from "./components/projects.astro";
       text-align: center;
     }
 
+    .hero-content {
+      align-items: center;
+    }
+
+    .hero-badge {
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .hero-text {
+      font-size: 0.95rem;
+    }
+
+    .hero-stats {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .hero-actions {
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
+      width: 100%;
+      max-width: 280px;
     }
 
     .btn {
@@ -354,13 +409,89 @@ import Projects from "./components/projects.astro";
     }
 
     .image-container {
-      width: 250px;
-      height: 250px;
+      width: 220px;
+      height: 220px;
     }
 
     .image-glow {
-      width: 270px;
-      height: 270px;
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      padding: var(--space-lg) 0;
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      font-size: 0.8rem;
+      gap: var(--space-xs);
+    }
+
+    .stat-item {
+      gap: 4px;
+    }
+
+    .image-container {
+      width: 180px;
+      height: 180px;
+    }
+
+    .image-glow {
+      width: 200px;
+      height: 200px;
+    }
+
+    .profile-image {
+      border-width: 3px;
+    }
+
+    .social-links {
+      gap: var(--space-xs);
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .hero-title {
+      font-size: 1.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .image-container {
+      width: 150px;
+      height: 150px;
+    }
+
+    .image-glow {
+      width: 170px;
+      height: 170px;
     }
   }
 </style>

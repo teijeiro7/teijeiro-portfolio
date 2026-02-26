@@ -365,6 +365,16 @@
     color: var(--text-secondary);
   }
 
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+    }
+
+    .contact-method {
+      gap: var(--space-sm);
+    }
+  }
+
   @media (max-width: 768px) {
     .contact-grid {
       grid-template-columns: 1fr;
@@ -385,6 +395,102 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-sm);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
+
+    .method-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    .contact-method {
+      gap: var(--space-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .container {
+      padding: 0 var(--space-sm);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .section-description {
+      font-size: 0.9rem;
+    }
+
+    .section-badge {
+      padding: 4px 10px;
+    }
+
+    .badge-text {
+      font-size: 0.75rem;
+    }
+
+    .method-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .method-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .method-info h3 {
+      font-size: 1rem;
+    }
+
+    .method-info p {
+      font-size: 0.9rem;
+    }
+
+    .copy-email-btn {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+
+    .availability {
+      font-size: 0.7rem;
+    }
+
+    .social-link {
+      padding: var(--space-xs);
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .social-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .social-name {
+      font-size: 0.875rem;
+    }
+
+    .social-handle {
+      font-size: 0.8rem;
     }
   }
 </style>
