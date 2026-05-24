@@ -3,36 +3,18 @@
 
 <section class="about-section" id="about">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-image-wrapper">
-        <div class="about-image-container">
-          <img
-            src="/images/memoji.png"
-            alt="Cristian Teijeiro"
-            class="about-image"
-            loading="lazy"
-          />
-          <div class="image-glow"></div>
+    <div class="about-content">
+      <div class="section-header">
+        <div class="section-badge">
+          <span class="badge-text" data-i18="about.badge">About Me</span>
         </div>
-        <div class="image-badges">
-          <div class="image-badge">
-            <span class="badge-dot"></span>
-            <span data-i18="about.status">Open to work</span>
-          </div>
-        </div>
+        <h2 class="section-title" data-i18="about.title">
+          Building <span class="gradient-text">digital solutions</span> with a
+          builder mindset
+        </h2>
       </div>
 
-      <div class="about-content">
-        <div class="section-header">
-          <div class="section-badge">
-            <span class="badge-text" data-i18="about.badge">About Me</span>
-          </div>
-          <h2 class="section-title" data-i18="about.title">
-            Building <span class="gradient-text">digital solutions</span> with a
-            builder mindset
-          </h2>
-        </div>
-
+      <div class="about-text-wrapper">
         <p class="about-text" data-i18="about.p1">
           I'm a Software Engineering student at URJC (last year) who loves
           turning ideas into real products. From AI-powered platforms to
@@ -46,41 +28,40 @@
           features. I'm passionate about AI integration, clean architecture, and
           building tools that people actually use.
         </p>
+      </div>
 
-        <div class="about-details">
-          <div class="detail-item">
-            <h4 data-i18="about.education">Education</h4>
-            <p>Software Engineering — URJC (2021-2025)</p>
-          </div>
-          <div class="detail-item">
-            <h4 data-i18="about.location">Location</h4>
-            <p>Madrid, Spain</p>
-          </div>
-          <div class="detail-item">
-            <h4 data-i18="about.languages">Languages</h4>
-            <p>Spanish (native) & English (professional)</p>
-          </div>
+      <div class="about-details">
+        <div class="detail-item">
+          <h4 data-i18="about.education">Education</h4>
+          <p>Software Engineering — URJC (2021-2025)</p>
         </div>
-
-        <div class="skills-section">
-          <h3 class="skills-title" data-i18="about.skillsTitle">Tech Stack</h3>
-          <div class="skills-grid">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">React Native</span>
-            <span class="skill-tag">Expo</span>
-            <span class="skill-tag">Next.js</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">Supabase</span>
-            <span class="skill-tag">Tailwind</span>
-            <span class="skill-tag">Drizzle ORM</span>
-            <span class="skill-tag">AI Integration</span>
-          </div>
+        <div class="detail-item">
+          <h4 data-i18="about.location">Location</h4>
+          <p>Madrid, Spain</p>
+        </div>
+        <div class="detail-item">
+          <h4 data-i18="about.languages">Languages</h4>
+          <p>Spanish (native) & English (professional)</p>
         </div>
       </div>
-    </div>
+
+      <div class="skills-section">
+        <h3 class="skills-title" data-i18="about.skillsTitle">Tech Stack</h3>
+        <div class="skills-grid">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">React Native</span>
+          <span class="skill-tag">Expo</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Supabase</span>
+          <span class="skill-tag">Tailwind</span>
+          <span class="skill-tag">Drizzle ORM</span>
+          <span class="skill-tag">AI Integration</span>
+        </div>
+      </div>
   </div>
 </section>
 
@@ -103,95 +84,16 @@
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--space-md);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: var(--space-2xl);
-    align-items: center;
-  }
-
-  .about-image-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  .about-image-container {
-    position: relative;
-    width: 280px;
-    height: 280px;
-  }
-
-  .about-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-    border: 4px solid var(--border);
-    position: relative;
-    z-index: 2;
-    background: var(--card-bg);
-  }
-
-  .image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background: var(--accent-gradient);
-    border-radius: 50%;
-    opacity: 0.15;
-    filter: blur(30px);
-    z-index: 1;
-    animation: glow 3s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from { opacity: 0.1; }
-    to { opacity: 0.25; }
-  }
-
-  .image-badges {
-    display: flex;
-    gap: var(--space-sm);
-  }
-
-  .image-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-sm);
-    background: rgba(220, 38, 38, 0.1);
-    border: 1px solid rgba(220, 38, 38, 0.2);
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    color: var(--accent-light);
-  }
-
-  .badge-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
   }
 
   .about-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: var(--space-md);
   }
 
@@ -300,28 +202,7 @@
     transform: translateY(-1px);
   }
 
-  @media (max-width: 1024px) {
-    .about-grid {
-      gap: var(--space-xl);
-    }
-
-    .about-image-container {
-      width: 240px;
-      height: 240px;
-    }
-
-    .image-glow {
-      width: 260px;
-      height: 260px;
-    }
-  }
-
   @media (max-width: 768px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
     .about-content {
       align-items: center;
     }
@@ -340,16 +221,6 @@
       justify-content: center;
     }
 
-    .about-image-container {
-      width: 200px;
-      height: 200px;
-    }
-
-    .image-glow {
-      width: 220px;
-      height: 220px;
-    }
-
     .section-badge {
       margin: 0 auto var(--space-md);
     }
@@ -358,16 +229,6 @@
   @media (max-width: 480px) {
     .about-section {
       padding: var(--space-xl) 0;
-    }
-
-    .about-image-container {
-      width: 160px;
-      height: 160px;
-    }
-
-    .image-glow {
-      width: 180px;
-      height: 180px;
     }
 
     .skill-tag {
