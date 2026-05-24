@@ -6,7 +6,7 @@
 
 Personal portfolio website built with **Astro**, featuring bilingual support (English/Spanish), dark/light theme toggle, and responsive design.
 
-🌐 **Live:** [cristiantg.com](https://cristiantg.com)
+🌐 **Live:** [teijeiro7.vercel.app](https://teijeiro7.vercel.app)
 
 ---
 

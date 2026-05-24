@@ -5,6 +5,18 @@ export interface Translations {
     experience: string;
     projects: string;
     contact: string;
+    about: string;
+  };
+  about: {
+    badge: string;
+    title: string;
+    status: string;
+    p1: string;
+    p2: string;
+    education: string;
+    location: string;
+    languages: string;
+    skillsTitle: string;
   };
   hero: {
     available: string;
@@ -48,6 +60,18 @@ export const translations: Record<Language, Translations> = {
       experience: 'Experiencia',
       projects: 'Proyectos',
       contact: 'Contacto',
+      about: 'Sobre Mí',
+    },
+    about: {
+      badge: 'Sobre Mí',
+      title: 'Creando soluciones digitales con mentalidad de constructor',
+      status: 'Abierto a oportunidades',
+      p1: 'Soy estudiante de Ingeniería del Software en URJC (último año) apasionado por convertir ideas en productos reales. Desde plataformas con IA hasta apps web full-stack, disfruto todo el proceso de construir algo que funciona.',
+      p2: 'Actualmente estoy aprendiendo React Native y Expo con Orial, un gestor de hábitos personal, y terminando mi TFG (Smashly) — una app de pádel con IA. Me apasiona la integración de IA, la arquitectura limpia y construir herramientas que la gente use de verdad.',
+      education: 'Educación',
+      location: 'Ubicación',
+      languages: 'Idiomas',
+      skillsTitle: 'Stack Tecnológico',
     },
     hero: {
       available: 'Disponible para trabajar',
@@ -75,7 +99,7 @@ export const translations: Record<Language, Translations> = {
     contact: {
       badge: 'Contacto',
       title: 'Trabajemos Juntos',
-      description: 'Siempre estoy interesado en nuevas oportunidades y proyectos emocionales. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡no dudes en contactar!',
+      description: 'Siempre estoy interesado en nuevas oportunidades y proyectos apasionantes. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡no dudes en contactar!',
       email: 'Email',
       copyEmail: 'Copiar Email',
       copied: '¡Copiado!',
@@ -89,6 +113,18 @@ export const translations: Record<Language, Translations> = {
       experience: 'Experience',
       projects: 'Projects',
       contact: 'Contact',
+      about: 'About',
+    },
+    about: {
+      badge: 'About Me',
+      title: 'Building digital solutions with a builder mindset',
+      status: 'Open to work',
+      p1: "I'm a Software Engineering student at URJC (last year) who loves turning ideas into real products. From AI-powered platforms to full-stack web apps, I enjoy the entire process of building something that works.",
+      p2: "Currently diving into React Native & Expo with Orial, a personal habit tracker, and finishing my TFG (Smashly) — a padel app with AI features. I'm passionate about AI integration, clean architecture, and building tools that people actually use.",
+      education: 'Education',
+      location: 'Location',
+      languages: 'Languages',
+      skillsTitle: 'Tech Stack',
     },
     hero: {
       available: 'Available for work',
