@@ -1,289 +1,288 @@
 ---
-import Project from "../../components/Project.astro";
+const githubIconPath =
+  "M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.16c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z";
 ---
 
-<section class="projects-section" id="projects">
+<section class="section" id="projects">
   <div class="container">
-    <div class="section-header">
-      <div class="section-badge">
-        <span class="badge-text" data-i18="projects.badge">Portfolio</span>
+    <header class="section-head reveal">
+      <div>
+        <span class="kicker"
+          ><span class="num">02</span> · <span data-i18="projects.kicker"
+            >Projects</span
+          ></span
+        >
+        <h2 class="h2 title" style="margin-top: 8px;" data-i18="projects.title">
+          Things I keep shipping.
+        </h2>
       </div>
-      <h2 class="section-title" data-i18="projects.title">Featured Projects</h2>
-      <p class="section-description" data-i18="projects.description">
-        A showcase of my recent work and personal projects, demonstrating my skills in web development and software engineering.
-      </p>
-    </div>
-
-    <div class="projects-grid">
-      <Project
-        title="Orial"
-        body="A mobile habit tracker built with React Native and Expo, featuring streak tracking, activity history, and data analysis. Uses Drizzle ORM with expo-sqlite for local persistence and a clean, minimal UI."
-        deploy=""
-        repo="https://github.com/teijeiro7/orial"
-        image="/images/orial-app.png"
-        technologies={[
-          "React Native",
-          "Expo",
-          "TypeScript",
-          "Drizzle ORM",
-          "SQLite",
-          "Expo Router",
-        ]}
-        featured={true}
-      />
-      <Project
-        title="Smashly - Padel App"
-        body="A web application (later mobile as well) that allows players to find their ideal paddle or compare between other paddles"
-        repo="https://github.com/codeurjc-students/2025-Smashlyapp"
-        image="/images/smashly.png"
-        technologies={[
-          "React",
-          "Vite",
-          "IA",
-          "Tailwind",
-          "Supabase",
-          "Python",
-          "Free AI API (Personal Project)",
-          "Node.js",
-        ]}
-      />
-    </div>
-
-    <div class="section-footer">
       <a
+        class="meta"
         href="https://github.com/teijeiro7"
         target="_blank"
         rel="noopener noreferrer"
-        class="view-all-btn"
-        data-i18="projects.viewAll"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-          ></path>
-        </svg>
-        View All Projects on GitHub
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M7 17l9.2-9.2M17 17V7H7"></path>
-        </svg>
+        <span data-i18="projects.viewAll">All on GitHub</span> →
       </a>
+    </header>
+
+    <div class="project-grid">
+      <article class="project featured reveal">
+        <div class="project-thumb">
+          <span class="project-thumb-tag" data-i18="projects.featured"
+            >Featured</span
+          >
+          <img
+            class="project-thumb-img"
+            src="/images/orial-app.png"
+            alt="Orial app icon"
+            style="object-position: center;"
+          />
+          <span class="project-thumb-label">Orial · React Native</span>
+        </div>
+        <h3 class="project-name">Orial</h3>
+        <p class="project-desc" data-i18="projects.orialDesc">
+          A mobile habit tracker — streak logic, activity history, and data
+          analysis. Local-first with expo-sqlite, typed with Drizzle, file-based
+          routing via Expo Router.
+        </p>
+        <div class="project-stack">
+          <span class="chip">React Native</span>
+          <span class="chip">Expo</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Drizzle</span>
+          <span class="chip">SQLite</span>
+        </div>
+        <div class="project-foot">
+          <a
+            class="project-link"
+            href="https://github.com/teijeiro7/orial"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+              ><path d={githubIconPath}></path></svg
+            >
+            <span data-i18="projects.source">Source</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-thumb">
+          <img
+            class="project-thumb-img"
+            src="/images/smashly.png"
+            alt="Smashly app screenshot"
+          />
+          <span class="project-thumb-label">Smashly · Web</span>
+        </div>
+        <h3 class="project-name">Smashly</h3>
+        <p class="project-desc" data-i18="projects.smashlyDesc">
+          Padel racket matcher — find your ideal racket, compare against
+          alternatives. React + Vite + Supabase, with a small Python service for
+          natural-language reviews.
+        </p>
+        <div class="project-stack">
+          <span class="chip">React</span>
+          <span class="chip">Vite</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">Python</span>
+          <span class="chip chip-accent">AI</span>
+        </div>
+        <div class="project-foot">
+          <a
+            class="project-link"
+            href="https://github.com/codeurjc-students/2025-Smashlyapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+              ><path d={githubIconPath}></path></svg
+            >
+            <span data-i18="projects.source">Source</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-thumb">
+          <div class="glyph">F</div>
+          <span class="project-thumb-label">Free-AI-API · Edge</span>
+        </div>
+        <h3 class="project-name">Free-AI-API</h3>
+        <p class="project-desc" data-i18="projects.freeaiDesc">
+          Cloudflare Workers gateway that fronts multiple free-tier LLM
+          providers behind one OpenAI-compatible endpoint. Swap providers
+          without rewriting client code.
+        </p>
+        <div class="project-stack">
+          <span class="chip">Cloudflare</span>
+          <span class="chip">Workers</span>
+          <span class="chip">TypeScript</span>
+        </div>
+        <div class="project-foot">
+          <a
+            class="project-link"
+            href="https://github.com/teijeiro7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+              ><path d={githubIconPath}></path></svg
+            >
+            <span data-i18="projects.source">Source</span>
+          </a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <style>
-  .projects-section {
-    padding: var(--space-2xl) 0;
-    background: var(--secondary);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .projects-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-2xl);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-sm);
-    background: rgba(220, 38, 38, 0.1); /* Rojo */
-    border: 1px solid rgba(220, 38, 38, 0.2);
-    border-radius: 9999px;
-    margin-bottom: var(--space-md);
-  }
-
-  .badge-text {
-    font-size: 0.875rem;
-    color: var(--accent-light);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .section-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: var(--space-md);
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.1;
-  }
-
-  .section-description {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: var(--space-lg);
-  }
-
-  .projects-grid {
+  .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: var(--space-xl);
-    margin-bottom: var(--space-2xl);
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 720px) {
+    .project-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1000px) {
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
-  .section-footer {
-    text-align: center;
-    padding-top: var(--space-xl);
-    border-top: 1px solid var(--border);
+  .project {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    border-radius: var(--radius);
+    transition:
+      border-color 0.15s,
+      transform 0.15s;
   }
-
-  .view-all-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: 16px 32px;
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--border);
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+  .project:hover {
+    border-color: var(--fg);
+    border-top-color: var(--accent);
+  }
+  .project.featured {
+    background: var(--surface);
+  }
+  .project-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: grid;
+    place-items: center;
+    margin-bottom: 16px;
     overflow: hidden;
+    position: relative;
   }
-
-  .view-all-btn::before {
-    content: "";
+  .project.featured .project-thumb {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+  }
+  .project-thumb-tag {
     position: absolute;
-    top: 0;
-    left: -100%;
+    top: 10px;
+    left: 10px;
+    padding: 3px 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 999px;
+  }
+  .project-thumb-img {
     width: 100%;
     height: 100%;
-    background: var(--accent-gradient);
-    transition: left 0.4s ease;
-    z-index: -1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
   }
-
-  .view-all-btn:hover {
-    color: white;
+  .project-thumb-label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 3px 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #ffffff;
+    background: color-mix(in oklch, #000000 55%, transparent);
+    border-radius: 999px;
+  }
+  .project-thumb .glyph {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(56px, 8vw, 96px);
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .project-name {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .project-desc {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .project-stack .chip {
+    padding: 3px 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .project.featured .project-stack .chip {
+    background: var(--bg);
+  }
+  .chip.chip-accent {
+    color: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
   }
-
-  .view-all-btn:hover::before {
-    left: 0;
+  .project-foot {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
   }
-
-  @media (max-width: 1024px) {
-    .projects-grid {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-lg);
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--fg);
   }
-
-  @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
-
-    .view-all-btn {
-      padding: 14px 24px;
-      font-size: 0.95rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-    }
-
-    .section-description {
-      font-size: 1rem;
-    }
+  .project-link:hover {
+    color: var(--accent);
   }
-
-  @media (max-width: 480px) {
-    .projects-section {
-      padding: var(--space-xl) 0;
-    }
-
-    .container {
-      padding: 0 var(--space-sm);
-    }
-
-    .section-header {
-      margin-bottom: var(--space-xl);
-    }
-
-    .section-title {
-      font-size: clamp(1.5rem, 5vw, 2rem);
-    }
-
-    .section-description {
-      font-size: 0.9rem;
-    }
-
-    .section-badge {
-      padding: 4px 10px;
-    }
-
-    .badge-text {
-      font-size: 0.75rem;
-    }
-
-    .view-all-btn {
-      padding: 12px 20px;
-      font-size: 0.875rem;
-      flex-direction: column;
-      gap: var(--space-xs);
-    }
-
-    .view-all-btn svg:first-child {
-      display: none;
-    }
-
-    .section-footer {
-      padding-top: var(--space-lg);
-    }
-  }
-
-  @media (max-width: 360px) {
-    .projects-grid {
-      gap: var(--space-md);
-    }
-
-    .view-all-btn {
-      padding: 10px 16px;
-      font-size: 0.8rem;
-    }
+  .project-link svg {
+    width: 12px;
+    height: 12px;
   }
 </style>
