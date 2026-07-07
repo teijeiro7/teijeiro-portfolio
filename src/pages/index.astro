@@ -1,501 +1,111 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import AboutMe from "./components/about-me.astro";
-import Contact from "./components/contact.astro";
 import Nav from "./components/nav.astro";
 import Projects from "./components/projects.astro";
-import Experience from "../components/Experience.astro";
+import Work from "../components/Work.astro";
+import Contact from "./components/contact.astro";
 ---
 
 <Layout title="Cristian Teijeiro | Software Engineer Portfolio">
   <Nav />
 
-  <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-text" data-i18="hero.available"
-              >Building at Fusuma · URJC Graduate</span
-            >
-            <div class="badge-dot"></div>
-          </div>
-
-          <h1 class="hero-title">
-            <span data-i18="hero.titlePrefix">Hi, I'm</span>
-            <span class="gradient-text">Cristian Teijeiro</span>
-          </h1>
-
-          <p class="hero-subtitle" data-i18="hero.subtitle">
-            Full-Stack Developer | Software Engineer at Fusuma
-          </p>
-
-          <p class="hero-text" data-i18="hero.description">
-            I build digital products with AI and clean architecture. From idea to deploy, one commit at a time.
-          </p>
-
-          <div class="hero-stats">
-            <div class="stat-item">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="var(--accent)"
-                stroke="white"
-                stroke-width="2"
-                class="location-icon"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span data-i18="hero.location">Madrid, Spain</span>
-            </div>
-            <div class="stat-divider">•</div>
-            <div class="stat-item">
-              <span data-i18="hero.age">22 years old</span>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a
-              href="#contact"
-              class="btn btn-primary"
-              data-i18="hero.btnContact"
-            >
-              Get in Touch
-            </a>
-            <a
-              href="#projects"
-              class="btn btn-secondary"
-              data-i18="hero.btnProjects"
-            >
-              View Projects
-            </a>
-          </div>
-
-          <div class="social-links">
-            <a
-              href="https://github.com/teijeiro7"
-              class="social-link"
-              aria-label="GitHub"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/cristianteijeiroparga/"
-              class="social-link"
-              aria-label="LinkedIn"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                ></path>
-              </svg>
-            </a>
-          </div>
+  <main id="top">
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-top reveal">
+          <span class="kicker">
+            <span class="num">01</span>
+            <span data-i18="hero.kicker">· Software Engineer · Madrid</span>
+          </span>
         </div>
-
-        <div class="hero-image">
-          <div class="image-container">
-            <img
-              src="/images/profilephoto.png"
-              alt="Cristian Teijeiro"
-              class="profile-image"
-            />
-            <div class="image-glow"></div>
+        <div class="reveal">
+          <h1 class="display">
+            Cristian<br />
+            Teijeiro<span class="period">.</span>
+          </h1>
+          <p class="lead" data-i18="hero.lead">
+            I build digital products with AI and clean architecture. From idea
+            to deploy, one commit at a time.
+          </p>
+          <div class="hero-meta">
+            <span class="pill"
+              ><span class="dot" aria-hidden="true"></span><span
+                data-i18="hero.pillRole">Software Engineer</span
+              ></span
+            >
+            <span class="pill"
+              ><span data-i18="hero.pillCompany">@ Fusuma</span></span
+            >
+            <span class="pill"
+              ><span data-i18="hero.pillDegree">URJC · Graduated</span></span
+            >
+            <span class="pill">ES · EN</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span data-i18="hero.ctaProjects">See projects</span>
+              <span class="arr" aria-hidden="true">→</span>
+            </a>
+            <a href="#contact" class="btn">
+              <span data-i18="hero.ctaContact">Get in touch</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <AboutMe />
-    <Experience />
     <Projects />
+    <Work />
     <Contact />
   </main>
 </Layout>
 
 <style>
-  .main-content {
-    padding-top: 70px; /* Nav height */
+  .hero {
+    padding-block: 56px 96px;
   }
-
-  .hero-section {
-    min-height: calc(100vh - 70px);
+  @media (max-width: 720px) {
+    .hero {
+      padding-block: 40px 48px;
+    }
+  }
+  .hero-top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: var(--space-xl) 0;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--accent);
+    margin-bottom: 48px;
   }
-
-  .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
-    align-items: center;
+  .hero h1 {
+    letter-spacing: -0.045em;
   }
-
-  .hero-content {
+  .hero h1 .period {
+    color: var(--accent);
+  }
+  .hero .lead {
+    margin-top: 32px;
+  }
+  .hero-meta {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
   }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: var(--space-xs) var(--space-sm);
-    background: rgba(220, 38, 38, 0.1); /* Cambio: rojo en lugar de azul */
-    border: 1px solid rgba(220, 38, 38, 0.2); /* Cambio: rojo en lugar de azul */
-    border-radius: 9999px;
-    width: fit-content;
-    font-size: 0.875rem;
-    color: var(--accent-light);
-  }
-
-  .badge-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent); /* Cambio: usar color de acento rojo */
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin: 0;
-  }
-
-  .gradient-text {
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-subtitle {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--accent-light);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .hero-text {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    max-width: 600px;
-    margin: 0;
-    opacity: 0.9;
-  }
-
-  .hero-stats {
+  .hero-cta {
     display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
   }
 
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-  }
-
-  .location-icon {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
-
-  .stat-divider {
-    color: var(--border);
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--space-sm);
-    margin-top: var(--space-sm);
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 24px;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary {
-    background: var(--accent-gradient);
-    color: white;
-    box-shadow: var(--shadow-md);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--border);
-  }
-
-  .btn-secondary:hover {
-    background: var(--hover-bg);
-    border-color: var(--accent);
-  }
-
-  .social-links {
-    display: flex;
-    gap: var(--space-sm);
-    margin-top: var(--space-sm);
-  }
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .social-link:hover {
-    background: var(--hover-bg);
-    color: var(--accent-light);
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-
-  .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .image-container {
-    position: relative;
-    width: 300px;
-    height: 375px;
-  }
-
-  .profile-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: contain;
-    border: 4px solid var(--border);
-    position: relative;
-    z-index: 2;
-  }
-
-  .image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    height: 320px;
-    background: var(--accent-gradient);
-    border-radius: 50%;
-    opacity: 0.2;
-    filter: blur(20px);
-    z-index: 1;
-    animation: glow 3s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from {
-      opacity: 0.1;
-    }
-    to {
-      opacity: 0.3;
-    }
-  }
-
-  /* Mobile responsiveness */
-  @media (max-width: 1024px) {
-    .hero-container {
-      gap: var(--space-xl);
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero-container {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
-      text-align: center;
-    }
-
-    .hero-content {
-      align-items: center;
-    }
-
-    .hero-badge {
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-    }
-
-    .hero-text {
-      font-size: 0.95rem;
-    }
-
-    .hero-stats {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-      width: 100%;
-      max-width: 280px;
-    }
-
-    .btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .image-container {
-      width: 220px;
-      height: 220px;
-    }
-
-    .image-glow {
-      width: 240px;
-      height: 240px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-section {
-      padding: var(--space-lg) 0;
-    }
-
-    .hero-badge {
-      font-size: 0.8rem;
-      padding: 6px 12px;
-    }
-
-    .hero-title {
-      font-size: clamp(1.5rem, 6vw, 2rem);
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-    }
-
-    .hero-text {
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    .hero-stats {
-      font-size: 0.8rem;
-      gap: var(--space-xs);
-    }
-
-    .stat-item {
-      gap: 4px;
-    }
-
-    .image-container {
-      width: 180px;
-      height: 180px;
-    }
-
-    .image-glow {
-      width: 200px;
-      height: 200px;
-    }
-
-    .profile-image {
-      border-width: 3px;
-    }
-
-    .social-links {
-      gap: var(--space-xs);
-    }
-
-    .social-link {
-      width: 36px;
-      height: 36px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    .hero-title {
-      font-size: 1.4rem;
-    }
-
-    .hero-subtitle {
-      font-size: 0.9rem;
-    }
-
-    .image-container {
-      width: 150px;
-      height: 150px;
-    }
-
-    .image-glow {
-      width: 170px;
-      height: 170px;
+  @media (max-width: 720px) {
+    .hero-top {
+      padding-bottom: 24px;
+      margin-bottom: 32px;
     }
   }
 </style>
