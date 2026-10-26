@@ -1,0 +1,57 @@
+---
+import { site } from "../data/content";
+import { pathFor, t, type Locale } from "../lib/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const pages = [
+  { label: site.ui.nav.index, href: "/" },
+  { label: site.ui.nav.work, href: "/work" },
+  { label: site.ui.nav.experience, href: "/experience" },
+  { label: site.ui.nav.contact, href: "/contact" },
+];
+---
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-top">
+      <a class="link-arrow" href="#main">
+        {t(site.ui.backToTop, locale)}
+        <svg viewBox="0 0 24 24" aria-hidden="true"
+          ><path d="M12 19V5M6 11l6-6 6 6"></path></svg
+        >
+      </a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>{t(site.ui.footer.pages, locale)}</h4>
+        {pages.map((page) => <a href={pathFor(page.href, locale)}>{t(page.label, locale)}</a>)}
+      </div>
+      <div class="footer-col">
+        <h4>{t(site.ui.footer.elsewhere, locale)}</h4>
+        <a href={site.meta.github} target="_blank" rel="noopener">GitHub</a>
+        <a href={site.meta.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-col">
+        <h4>{t(site.ui.footer.basedIn, locale)}</h4>
+        <span>{t(site.ui.footer.location, locale)}</span>
+        <span>{site.meta.coordinates}</span>
+        <span data-clock>Madrid</span>
+      </div>
+      <div class="footer-col">
+        <h4>{t(site.ui.footer.colophon, locale)}</h4>
+        <span>{t(site.ui.footer.fonts, locale)}</span>
+        <span>{t(site.ui.footer.stack, locale)}</span>
+        <span>{t(site.ui.footer.trackers, locale)}</span>
+      </div>
+    </div>
+    <div class="footer-base mono">
+      <span>© 2026 {site.meta.name}</span>
+      <span>{t(site.ui.footer.built, locale)}</span>
+    </div>
+  </div>
+</footer>

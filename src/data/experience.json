@@ -1,0 +1,290 @@
+{
+  "eyebrow": { "en": "Trajectory", "es": "Trayectoria" },
+  "title": {
+    "en": "A short,|honest *history*.",
+    "es": "Una historia|breve y *honesta*."
+  },
+  "lead": {
+    "en": "Product engineering at Fusuma, a spring at KPMG, digital assurance at PwC, retail at Apple and three seasons coaching futsal. One thread: taking complicated systems and making them legible.",
+    "es": "Ingeniería de producto en Fusuma, una primavera en KPMG, assurance digital en PwC, retail en Apple y tres temporadas entrenando fútbol sala. Un hilo: coger sistemas complicados y hacerlos legibles."
+  },
+  "facts": [
+    {
+      "label": { "en": "Years", "es": "Años" },
+      "value": { "en": "2022 → 2026", "es": "2022 → 2026" }
+    },
+    {
+      "label": { "en": "Roles", "es": "Roles" },
+      "value": { "en": "05", "es": "05" }
+    },
+    {
+      "label": { "en": "Base", "es": "Base" },
+      "value": { "en": "Madrid, ES", "es": "Madrid, ES" }
+    },
+    {
+      "label": { "en": "Languages", "es": "Idiomas" },
+      "value": { "en": "ES native · EN B2", "es": "ES nativo · EN B2" }
+    }
+  ],
+  "timeline": {
+    "eyebrow": { "en": "Professional", "es": "Profesional" },
+    "title": { "en": "Where I have *worked*.", "es": "Dónde he *trabajado*." },
+    "aside": { "en": "Reverse chronological", "es": "Orden cronológico inverso" }
+  },
+  "roles": [
+    {
+      "when": { "en": "Jun 2026 → Now", "es": "Jun 2026 → Ahora" },
+      "current": true,
+      "currentLabel": { "en": "Current", "es": "Actual" },
+      "logo": "/images/fusuma.jpg",
+      "logoAlt": "Fusuma",
+      "role": { "en": "Software Engineer", "es": "Ingeniero de Software" },
+      "org": {
+        "en": "Fusuma Advisory · Madrid",
+        "es": "Fusuma Advisory · Madrid"
+      },
+      "bullets": [
+        {
+          "en": "Full-stack on an accounting SaaS: bank reconciliation, payments, batch processing and the Holded integration, in TypeScript and React 19.",
+          "es": "Full-stack en un SaaS contable: conciliación bancaria, pagos, procesamiento por lotes y la integración con Holded, en TypeScript y React 19."
+        },
+        {
+          "en": "Led the Holded API v1→v2 migration pilot: one client replacing ~20 call sites, both versions coexisting per company, and a front-end toggle with a live connection test.",
+          "es": "Lideré el piloto de migración de la API de Holded v1→v2: un cliente que sustituye ~20 puntos de llamada, ambas versiones conviviendo por empresa y un interruptor en el front-end con test de conexión en vivo."
+        },
+        {
+          "en": "Built a reconciliation agent for a tourism client: Snowflake queries, AWS RDS, Docker + Helm + ArgoCD, CloudBees + Sonar, 21 UAT checks and 200+ files validated before go-live.",
+          "es": "Construí un agente de conciliación para un cliente de turismo: consultas a Snowflake, AWS RDS, Docker + Helm + ArgoCD, CloudBees + Sonar, 21 pruebas UAT y más de 200 archivos validados antes del go-live."
+        },
+        {
+          "en": "Helped the team adopt AI agents (Claude Code) with TDD, code review and ADRs.",
+          "es": "Ayudé al equipo a adoptar agentes de IA (Claude Code) con TDD, revisión de código y ADRs."
+        }
+      ],
+      "tags": [
+        { "text": "Full-time", "accent": true },
+        { "text": "TypeScript" },
+        { "text": "React 19" },
+        { "text": "TanStack" },
+        { "text": "Supabase" },
+        { "text": "Drizzle" }
+      ]
+    },
+    {
+      "when": { "en": "16 Mar 2026 → 5 Jun 2026", "es": "16 Mar 2026 → 5 Jun 2026" },
+      "logoText": "KPMG",
+      "logoAlt": "KPMG",
+      "role": { "en": "Technology Intern", "es": "Becario de Tecnología" },
+      "org": {
+        "en": "KPMG Transformación y Tecnología · Madrid",
+        "es": "KPMG Transformación y Tecnología · Madrid"
+      },
+      "bullets": [
+        {
+          "en": "Paid internship in a remote team, with daily standups and code reviews.",
+          "es": "Prácticas remuneradas en un equipo remoto, con dailies y revisiones de código."
+        },
+        {
+          "en": "Worked alongside consultants and engineers on technology transformation delivery.",
+          "es": "Trabajé junto a consultores e ingenieros en la entrega de proyectos de transformación tecnológica."
+        }
+      ],
+      "tags": [
+        { "text": "Internship" },
+        { "text": "Remote" },
+        { "text": "Consulting" }
+      ]
+    },
+    {
+      "when": { "en": "Oct 2025 → Feb 2026", "es": "Oct 2025 → Feb 2026" },
+      "logo": "/images/pwc.png",
+      "logoAlt": "PwC",
+      "role": { "en": "Digital Assurance Intern", "es": "Becario de Assurance Digital" },
+      "org": { "en": "PwC · Madrid", "es": "PwC · Madrid" },
+      "bullets": [
+        {
+          "en": "Big Data validation at Santander Digital Services with the Aura tool.",
+          "es": "Validación de Big Data en Santander Digital Services con la herramienta Aura."
+        },
+        {
+          "en": "Co-authored internal technical guides and validation protocols for the team.",
+          "es": "Coescribí guías técnicas internas y protocolos de validación para el equipo."
+        }
+      ],
+      "tags": [{ "text": "Internship" }, { "text": "Data" }]
+    },
+    {
+      "when": { "en": "Jul 2025 → Jan 2026", "es": "Jul 2025 → Ene 2026" },
+      "logo": "/images/apple.png",
+      "logoAlt": "Apple",
+      "role": { "en": "Sales Specialist", "es": "Especialista de Ventas" },
+      "org": { "en": "Apple · Madrid", "es": "Apple · Madrid" },
+      "bullets": [
+        {
+          "en": "Translating complex technical specs into decisions for people with no technical background.",
+          "es": "Traducir especificaciones técnicas complejas en decisiones para personas sin formación técnica."
+        }
+      ],
+      "tags": [{ "text": "Retail" }, { "text": "Communication" }]
+    },
+    {
+      "when": { "en": "Sep 2022 → Jun 2025", "es": "Sep 2022 → Jun 2025" },
+      "logo": "/images/ce_futsal_pardillo.png",
+      "logoAlt": "CE Futsal Pardillo",
+      "role": { "en": "Futsal Coach", "es": "Entrenador de Fútbol Sala" },
+      "org": { "en": "CE Futsal Pardillo · Madrid", "es": "CE Futsal Pardillo · Madrid" },
+      "bullets": [
+        {
+          "en": "Coordinating groups and families: planning, leadership and the discipline of showing up.",
+          "es": "Coordinar grupos y familias: planificación, liderazgo y la disciplina de aparecer."
+        }
+      ],
+      "tags": [
+        { "text": "Other" },
+        { "text": "Coaching" },
+        { "text": "Leadership" }
+      ]
+    }
+  ],
+  "now": {
+    "eyebrow": { "en": "Now", "es": "Ahora" },
+    "title": { "en": "What I am building today.", "es": "Lo que construyo hoy." },
+    "aside": { "en": "Updated Oct 2026", "es": "Actualizado Oct 2026" },
+    "lead": {
+      "en": "I am a software engineer at Fusuma Advisory in Madrid, working on an accounting SaaS: bank reconciliation, payments, batch processing and the Holded integration.",
+      "es": "Soy ingeniero de software en Fusuma Advisory, en Madrid, trabajando en un SaaS contable: conciliación bancaria, pagos, procesamiento por lotes y la integración con Holded."
+    },
+    "body": [
+      {
+        "en": "Most of my day is TypeScript and React 19, with TanStack, Supabase/Postgres and Drizzle. I like the part of the job where a migration, a data model and a screen have to agree before anything ships, and I would rather read the schema than guess.",
+        "es": "La mayor parte de mi día es TypeScript y React 19, con TanStack, Supabase/Postgres y Drizzle. Me gusta la parte del trabajo en la que una migración, un modelo de datos y una pantalla tienen que ponerse de acuerdo antes de que algo salga, y prefiero leer el esquema antes que adivinar."
+      },
+      {
+        "en": "Outside work I build products with AI: Jarvis, a personal assistant running 24/7 on a VPS, and Orial, a health app. My thesis, Smashly, is now a live padel SaaS.",
+        "es": "Fuera del trabajo construyo productos con IA: Jarvis, un asistente personal que corre 24/7 en un VPS, y Orial, una app de salud. Mi TFG, Smashly, es hoy un SaaS de pádel en vivo."
+      }
+    ],
+    "facts": [
+      {
+        "label": { "en": "Now", "es": "Ahora" },
+        "value": {
+          "en": "Software Engineer at Fusuma Advisory",
+          "es": "Ingeniero de Software en Fusuma Advisory"
+        }
+      },
+      {
+        "label": { "en": "Focus", "es": "Enfoque" },
+        "value": {
+          "en": "Product engineering, AI agents, data-heavy interfaces",
+          "es": "Ingeniería de producto, agentes de IA, interfaces con muchos datos"
+        }
+      },
+      {
+        "label": { "en": "Thesis", "es": "TFG" },
+        "value": { "en": "Smashly · presented June 2026", "es": "Smashly · presentado en Jun 2026" }
+      },
+      {
+        "label": { "en": "Next", "es": "Siguiente" },
+        "value": { "en": "English C1", "es": "Inglés C1" }
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": { "en": "Education", "es": "Formación" },
+    "title": { "en": "What I studied.", "es": "Qué estudié." },
+    "aside": { "en": "Formal + ongoing", "es": "Formal + en curso" },
+    "cards": [
+      {
+        "when": { "en": "2022 → 2026", "es": "2022 → 2026" },
+        "title": { "en": "BSc Software Engineering", "es": "Grado en Ingeniería del Software" },
+        "body": {
+          "en": "Universidad Rey Juan Carlos, Madrid. TFG: Smashly App, a padel SaaS presented in June 2026.",
+          "es": "Universidad Rey Juan Carlos, Madrid. TFG: Smashly App, un SaaS de pádel presentado en junio de 2026."
+        }
+      },
+      {
+        "when": { "en": "Languages", "es": "Idiomas" },
+        "title": { "en": "Spanish native · English B2", "es": "Español nativo · Inglés B2" },
+        "body": {
+          "en": "Working towards C1. Comfortable writing docs, reviews and product copy in both languages.",
+          "es": "Trabajando hacia el C1. Cómodo escribiendo documentación, revisiones y copy de producto en ambos idiomas."
+        }
+      },
+      {
+        "when": { "en": "Certifications", "es": "Certificaciones" },
+        "title": { "en": "Claude Code in Action · OneStream", "es": "Claude Code in Action · OneStream" },
+        "body": {
+          "en": "Anthropic's Claude Code course and OneStream's complete course.",
+          "es": "El curso de Claude Code de Anthropic y el curso completo de OneStream."
+        }
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": { "en": "Toolbox", "es": "Caja de herramientas" },
+    "title": { "en": "What I reach for.", "es": "Qué uso." },
+    "aside": { "en": "Daily drivers only", "es": "Solo lo que uso a diario" },
+    "groups": [
+      {
+        "title": { "en": "Frontend", "es": "Frontend" },
+        "items": ["TypeScript", "React 19", "TanStack", "Astro", "Design tokens"]
+      },
+      {
+        "title": { "en": "Backend", "es": "Backend" },
+        "items": ["Node.js", "Hono", "FastAPI", "REST / JSON", "Turborepo"]
+      },
+      {
+        "title": { "en": "Data", "es": "Datos" },
+        "items": ["Postgres", "Supabase", "Drizzle", "SQL / Snowflake", "Pandas"]
+      },
+      {
+        "title": { "en": "AI + agents", "es": "IA + agentes" },
+        "items": ["LLM routing", "Claude Code", "Tool use", "Agent memory", "Prompt design"]
+      },
+      {
+        "title": { "en": "Infra", "es": "Infraestructura" },
+        "items": ["Cloudflare Workers", "Vercel", "Docker / Helm", "ArgoCD", "GitHub Actions"]
+      }
+    ]
+  },
+  "principles": {
+    "eyebrow": { "en": "How I work", "es": "Cómo trabajo" },
+    "title": { "en": "Three working beliefs.", "es": "Tres convicciones de trabajo." },
+    "items": [
+      {
+        "title": { "en": "Make it legible", "es": "Hacerlo legible" },
+        "body": {
+          "en": "Code and interfaces should explain themselves. If a decision needs a meeting to be understood, it needs a rewrite.",
+          "es": "El código y las interfaces deberían explicarse solos. Si una decisión necesita una reunión para entenderse, necesita una reescritura."
+        }
+      },
+      {
+        "title": { "en": "Ship the small version", "es": "Entregar la versión pequeña" },
+        "body": {
+          "en": "Working software in front of a person beats a perfect plan in a document. Iterate with evidence, not opinion.",
+          "es": "Software funcionando delante de una persona supera a un plan perfecto en un documento. Iterar con evidencia, no con opiniones."
+        }
+      },
+      {
+        "title": { "en": "Leave the room cleaner", "es": "Dejar el sitio más limpio" },
+        "body": {
+          "en": "Tests, docs and naming are part of the feature. The next person to open the file should have an easier day.",
+          "es": "Los tests, la documentación y los nombres son parte de la funcionalidad. Quien abra el archivo después debería tener un día más fácil."
+        }
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": { "en": "Next", "es": "Siguiente" },
+    "title": {
+      "en": "The full CV is|one *email* away.",
+      "es": "El CV completo está|a un *email*."
+    },
+    "body": {
+      "en": "Happy to send the PDF, walk through a project or answer the question this page did not cover.",
+      "es": "Con gusto te envío el PDF, te cuento un proyecto o respondo la pregunta que esta página no cubre."
+    },
+    "button": { "en": "Ask for the CV", "es": "Pedir el CV" },
+    "note": { "en": "EN / ES · PDF on request", "es": "EN / ES · PDF a petición" }
+  }
+}

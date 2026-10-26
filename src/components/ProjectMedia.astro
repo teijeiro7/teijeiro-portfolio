@@ -1,0 +1,101 @@
+---
+import { site } from "../data/content";
+import { pathFor, t, type Locale } from "../lib/i18n";
+import type { Project } from "../data/schema";
+
+interface Props {
+  project: Project;
+  locale: Locale;
+}
+
+const { project, locale } = Astro.props;
+const tag = t(project.tag, locale);
+const tagClass = project.tagAccent ? "pr-tag is-accent" : "pr-tag";
+
+const mediaHref =
+  project.cover === "smashly"
+    ? project.links.find((link) => link.href?.startsWith("http"))?.href
+    : project.caseStudy
+      ? pathFor(`/work/${project.id}`, locale)
+      : undefined;
+
+const linkLabel =
+  project.cover === "smashly"
+    ? `${t(site.ui.labels.visitProduct, locale)}: ${project.name}`
+    : `${t(site.ui.labels.openProject, locale)} ${project.name}`;
+---
+
+{
+  mediaHref ? (
+    <a
+      class="pr-media"
+      href={mediaHref}
+      target={mediaHref.startsWith("http") ? "_blank" : undefined}
+      rel={mediaHref.startsWith("http") ? "noopener" : undefined}
+      aria-label={linkLabel}
+    >
+      {project.cover === "smashly" && (
+        <>
+          <img
+            src="/images/smashly.png"
+            alt={project.mediaAlt ? t(project.mediaAlt, locale) : ""}
+            width="1200"
+            height="750"
+            loading="lazy"
+          />
+          <span class={tagClass}>{tag}</span>
+        </>
+      )}
+
+      {project.cover === "orial" && (
+        <>
+          <div class="cover cover-orial" aria-hidden="true">
+            <span class="cover-top">{project.coverCopy ? t(project.coverCopy.top, locale) : project.name}</span>
+            <div class="cover-center">
+              <img class="cover-mark" src="/images/orial-mark.svg" alt="" />
+              <span class="cover-word">{project.name}</span>
+            </div>
+            <span class="cover-bottom">
+              {project.coverCopy ? t(project.coverCopy.bottom, locale) : project.name}
+            </span>
+          </div>
+          <span class={tagClass}>{tag}</span>
+        </>
+      )}
+    </a>
+  ) : (
+    <div class="pr-media">
+      {project.cover === "jarvis" && (
+        <div class="cover cover-jarvis" aria-hidden="true">
+          <span class="cover-top">
+            {project.coverCopy ? t(project.coverCopy.top, locale) : project.name}
+          </span>
+          <div class="cover-center">
+            <span class="cover-rings" />
+            <span class="cover-glyph">J</span>
+          </div>
+          <span class="cover-bottom">
+            {project.coverCopy ? t(project.coverCopy.bottom, locale) : project.name}
+          </span>
+        </div>
+      )}
+
+      {project.cover === "durit" && (
+        <div class="cover cover-durit" aria-hidden="true">
+          <span class="cover-top">
+            {project.coverCopy ? t(project.coverCopy.top, locale) : project.name}
+          </span>
+          <div class="cover-center cover-center-col">
+            <img class="cover-logo" src="/images/durit-logo-white.svg" alt="" />
+            <span class="cover-sub">Prospector</span>
+          </div>
+          <span class="cover-bottom">
+            {project.coverCopy ? t(project.coverCopy.bottom, locale) : project.name}
+          </span>
+        </div>
+      )}
+
+      <span class={tagClass}>{tag}</span>
+    </div>
+  )
+}

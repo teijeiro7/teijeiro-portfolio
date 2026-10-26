@@ -1,0 +1,214 @@
+---
+import Arrow from "../components/Arrow.astro";
+import CtaBand from "../components/CtaBand.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { getProject, home, site } from "../data/content";
+import { pathFor, t, type Locale } from "../lib/i18n";
+import { inline } from "../lib/text";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const [firstName, ...restName] = site.meta.name.split(" ");
+const lastName = restName.join(" ");
+const selected = home.selected.items.map(getProject);
+
+type Thumb =
+  | { kind: "image"; src: string }
+  | { kind: "mark"; src: string }
+  | { kind: "glyph" };
+
+const thumbFor = (cover: string): Thumb => {
+  if (cover === "smashly") return { kind: "image", src: "/images/smashly.png" };
+  if (cover === "orial") return { kind: "mark", src: "/images/orial-mark.svg" };
+  if (cover === "durit") return { kind: "mark", src: "/images/durit-logo-white.svg" };
+  return { kind: "glyph" };
+};
+---
+
+<section class="hero">
+  <div class="shell">
+    <div class="hero-meta">
+      <span class="eyebrow"><span class="idx">01</span>{t(home.hero.eyebrow, locale)}</span>
+      <span class="status"><i class="dot"></i>{t(home.hero.status, locale)}</span>
+      <span class="mono">Madrid · <span data-clock>--:--</span></span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="display">
+          {firstName}<br />{lastName}<span class="period">.</span>
+        </h1>
+
+        <div class="hero-lead">
+          <p class="lead">{t(home.hero.lead, locale)}</p>
+          <span class="mono" style="color: var(--faint); text-align: right" set:html={inline(t(home.hero.focus, locale))} />
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn" href={pathFor("/work", locale)}>
+            {t(home.hero.ctaPrimary, locale)}
+            <Arrow />
+          </a>
+          <a class="btn btn-ghost" href={`${pathFor("/experience", locale)}#now`}>
+            {t(home.hero.ctaSecondary, locale)}
+          </a>
+        </div>
+
+        <div class="hero-facts">
+          {
+            home.hero.facts.map((fact) => (
+              <span>
+                <i class="dot" />
+                {t(fact, locale)}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <figure class="portrait reveal">
+        <div class="portrait-frame">
+          <span class="portrait-corner">Fig. 01</span>
+          <img
+            src="/images/portrait-2026.webp"
+            alt={t(home.hero.portraitAlt, locale)}
+            width="1000"
+            height="1184"
+          />
+          <figcaption class="portrait-label">
+            <div>
+              <div class="pl-name">{site.meta.name}</div>
+              <div class="pl-role">{t(home.hero.portraitRole, locale)}</div>
+            </div>
+            <span class="pl-index">2026</span>
+          </figcaption>
+        </div>
+        <div class="portrait-foot mono">
+          <span>{t(home.hero.portraitFoot, locale)}</span>
+          <span>{site.meta.coordinates}</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="index-strip" aria-label="Core stack">
+  <div class="shell index-strip-inner">
+    {
+      home.strip.map((item, index) => (
+        <>
+          {index > 0 && <i class="dot" />}
+          <span class="mono">{item}</span>
+        </>
+      ))
+    }
+  </div>
+</div>
+
+<section class="section" id="work">
+  <div class="shell">
+    <SectionHead
+      num="02"
+      eyebrow={t(home.selected.eyebrow, locale)}
+      title={t(home.selected.title, locale)}
+      aside={t(home.selected.count, locale)}
+    />
+
+    <div class="work-list">
+      {
+        selected.map((project, index) => {
+          const thumb = thumbFor(project.cover);
+          const href =
+            project.homeLink === "case"
+              ? pathFor(`/work/${project.id}`, locale)
+              : pathFor("/work", locale);
+          return (
+            <a class="work-row reveal" href={href}>
+              <span class="w-num">{String(index + 1).padStart(2, "0")}</span>
+              <div class="w-main">
+                {thumb.kind === "image" && (
+                  <span class="w-thumb">
+                    <img src={thumb.src} alt="" loading="lazy" />
+                  </span>
+                )}
+                {thumb.kind === "mark" && (
+                  <span class="w-thumb w-thumb-dark">
+                    <img src={thumb.src} alt="" loading="lazy" />
+                  </span>
+                )}
+                {thumb.kind === "glyph" && <span class="w-thumb w-thumb-glyph">J</span>}
+                <div>
+                  <h3 class="w-title">{project.name}</h3>
+                  <p class="w-sub">{t(project.summary, locale)}</p>
+                </div>
+              </div>
+              <div class="w-tags">
+                {project.tags.slice(0, 2).map((tag) => (
+                  <span class={tag.accent ? "tag is-accent" : "tag"}>{tag.text}</span>
+                ))}
+              </div>
+              <span class="w-year">{project.meta}</span>
+              <span class="w-go" aria-hidden="true">
+                <Arrow direction="up-right" />
+              </span>
+            </a>
+          );
+        })
+      }
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; margin-top: 22px">
+      <a class="link-arrow" href={pathFor("/work", locale)}>
+        {t(home.selected.all, locale)}
+        <Arrow />
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell exp-preview">
+    <div class="intro reveal">
+      <span class="eyebrow" style="margin-bottom: 14px">
+        <span class="idx">03</span>{t(home.experience.eyebrow, locale)}
+      </span>
+      <h2 class="h2" set:html={inline(t(home.experience.title, locale))} />
+      <p class="body" style="margin-top: 14px">{t(home.experience.body, locale)}</p>
+      <div style="margin-top: 24px">
+        <a class="link-arrow" href={pathFor("/experience", locale)}>
+          {t(home.experience.cta, locale)}
+          <Arrow />
+        </a>
+      </div>
+    </div>
+
+    <div class="exp-list reveal">
+      {
+        home.experience.roles.map((role) => (
+          <div class="exp-item">
+            <span class="when">{t(role.when, locale)}</span>
+            <div>
+              <div class="role">{t(role.role, locale)}</div>
+              <span class="org">{t(role.org, locale)}</span>
+            </div>
+            <span class="kind">{t(role.kind, locale)}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<CtaBand
+  idx="04"
+  eyebrow={t(home.cta.eyebrow, locale)}
+  title={t(home.cta.title, locale)}
+  body={t(home.cta.body, locale)}
+  button={t(home.cta.button, locale)}
+  note={t(home.cta.note, locale)}
+  href={pathFor("/contact", locale)}
+/>

@@ -1,0 +1,172 @@
+---
+import Breadcrumb from "../components/Breadcrumb.astro";
+import CtaBand from "../components/CtaBand.astro";
+import ProjectMedia from "../components/ProjectMedia.astro";
+import { site, work } from "../data/content";
+import { pathFor, t, type Locale } from "../lib/i18n";
+import { inline } from "../lib/text";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const count = work.projects.length;
+const counts = {
+  all: count,
+  product: work.projects.filter((project) => project.kind === "product").length,
+  mobile: work.projects.filter((project) => project.kind === "mobile").length,
+  ai: work.projects.filter((project) => project.kind === "ai").length,
+};
+
+const filters = [
+  { kind: "all", label: work.filterLabels.all, count: counts.all },
+  { kind: "product", label: work.filterLabels.product, count: counts.product },
+  { kind: "mobile", label: work.filterLabels.mobile, count: counts.mobile },
+  { kind: "ai", label: work.filterLabels.ai, count: counts.ai },
+];
+
+const twoDigits = (value: number) => String(value).padStart(2, "0");
+---
+
+<section class="page-head">
+  <div class="shell">
+    <Breadcrumb
+      items={[
+        { label: t(site.ui.nav.index, locale), href: pathFor("/", locale) },
+        { label: t(site.ui.nav.work, locale) },
+      ]}
+    />
+    <div class="page-head-grid">
+      <div>
+        <span class="eyebrow"><span class="idx">02</span>{t(work.eyebrow, locale)}</span>
+        <h1 class="h1" set:html={inline(t(work.title, locale))} />
+        <p class="lead page-lead">{t(work.lead, locale)}</p>
+      </div>
+      <aside class="head-aside">
+        <dl class="head-facts">
+          {
+            work.facts.map((fact) => (
+              <div>
+                <dt>{t(fact.label, locale)}</dt>
+                <dd style={fact.ok ? "color: var(--ok)" : undefined}>{t(fact.value, locale)}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0; border-top: 0">
+  <div class="shell">
+    <div class="filter-bar">
+      <div class="filters" role="group" aria-label={t(work.filtersLabel, locale)} data-filter="#project-list">
+        {
+          filters.map((filter) => (
+            <button
+              class="filter"
+              type="button"
+              data-kind={filter.kind}
+              aria-pressed={filter.kind === "all" ? "true" : "false"}
+            >
+              {t(filter.label, locale)} · {twoDigits(filter.count)}
+            </button>
+          ))
+        }
+      </div>
+      <span class="mono" style="color: var(--faint)">{t(work.sorted, locale)}</span>
+    </div>
+
+    <div class="project-list" id="project-list">
+      {
+        work.projects.map((project, index) => {
+          const primary = project.links.find((link) => link.href);
+          const titleHref = primary?.href
+            ? primary.href.startsWith("http")
+              ? primary.href
+              : pathFor(primary.href, locale)
+            : undefined;
+          const external = primary?.href?.startsWith("http") ?? false;
+
+          return (
+            <article class="project-record reveal" data-kind={project.kind}>
+              <ProjectMedia project={project} locale={locale} />
+              <div class="pr-body">
+                <span class="pr-kicker mono">
+                  <span class="dot" />
+                  {twoDigits(index + 1)} · {t(project.kicker, locale)}
+                </span>
+                <h2 class="pr-title">
+                  {titleHref ? (
+                    <a
+                      href={titleHref}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener" : undefined}
+                    >
+                      {project.name} <span class="pr-arrow" aria-hidden="true">↗</span>
+                    </a>
+                  ) : (
+                    <span>{project.name}</span>
+                  )}
+                </h2>
+                <p class="pr-desc">{t(project.description, locale)}</p>
+                <div class="pr-facts">
+                  {project.facts.map((fact) => (
+                    <span>
+                      {t(fact.label, locale)} <b>{t(fact.value, locale)}</b>
+                    </span>
+                  ))}
+                </div>
+                <div class="tags">
+                  {project.tags.map((tag) => (
+                    <span class={tag.accent ? "tag is-accent" : "tag"}>{tag.text}</span>
+                  ))}
+                </div>
+                <div class="pr-links">
+                  {project.links.map((link) => {
+                    if (link.disabled || !link.href) {
+                      return (
+                        <span class="btn btn-sm btn-ghost is-disabled">
+                          {link.label ? t(link.label, locale) : t(site.ui.labels.codePrivate, locale)}
+                        </span>
+                      );
+                    }
+
+                    const href = link.href.startsWith("http")
+                      ? link.href
+                      : pathFor(link.href, locale);
+
+                    return (
+                      <a
+                        class="btn btn-sm btn-ghost"
+                        href={href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener" : undefined}
+                      >
+                        {link.label ? t(link.label, locale) : t(site.ui.labels.readCase, locale)}
+                        {link.external && " ↗"}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<CtaBand
+  eyebrow={t(work.cta.eyebrow, locale)}
+  title={t(work.cta.title, locale)}
+  body={t(work.cta.body, locale)}
+  button={t(work.cta.button, locale)}
+  note={t(work.cta.note, locale)}
+  href={site.meta.github}
+  external
+/>

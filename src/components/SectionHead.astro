@@ -1,0 +1,23 @@
+---
+import { inline } from "../lib/text";
+
+interface Props {
+  num: string;
+  eyebrow: string;
+  title: string;
+  aside?: string;
+}
+
+const { num, eyebrow, title, aside } = Astro.props;
+---
+
+<header class="section-head reveal">
+  <span class="num">{num}</span>
+  <div class="title-wrap">
+    <span class="eyebrow">{eyebrow}</span>
+    <h2 class="h2" set:html={inline(title)} />
+  </div>
+  <div class="aside">
+    {aside && <span class="mono" style="color: var(--faint)" set:html={inline(aside)} />}
+  </div>
+</header>

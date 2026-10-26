@@ -1,0 +1,37 @@
+---
+import Arrow from "./Arrow.astro";
+import { inline } from "../lib/text";
+
+interface Props {
+  idx?: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+  button: string;
+  note?: string;
+  href: string;
+  external?: boolean;
+}
+
+const { idx, eyebrow, title, body, button, note, href, external = false } = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="shell cta-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="margin-bottom: 18px">
+        {idx && <span class="idx">{idx}</span>}
+        {eyebrow}
+      </span>
+      <h2 class="h1" set:html={inline(title)} />
+    </div>
+    <div class="cta-side reveal">
+      <p class="body">{body}</p>
+      <a class="btn" href={href} target={external ? "_blank" : undefined} rel={external ? "noopener" : undefined}>
+        {button}
+        <Arrow />
+      </a>
+      {note && <span class="mono" style="color: var(--faint)">{note}</span>}
+    </div>
+  </div>
+</section>

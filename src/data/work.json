@@ -1,0 +1,267 @@
+{
+  "eyebrow": {
+    "en": "Archive",
+    "es": "Archivo"
+  },
+  "title": {
+    "en": "Work, on|the *record*.",
+    "es": "Trabajo,|con *registro*."
+  },
+  "lead": {
+    "en": "Four products taken from sketch to production: a live padel SaaS, a health app, a personal assistant and a client pipeline. Each entry says what is public and what is not.",
+    "es": "Cuatro productos llevados del boceto a producción: un SaaS de pádel en vivo, una app de salud, un asistente personal y un pipeline para un cliente. Cada ficha dice qué es público y qué no."
+  },
+  "facts": [
+    {
+      "label": { "en": "Records", "es": "Registros" },
+      "value": { "en": "04", "es": "04" }
+    },
+    {
+      "label": { "en": "Years", "es": "Años" },
+      "value": { "en": "2025 → 2026", "es": "2025 → 2026" }
+    },
+    {
+      "label": { "en": "Focus", "es": "Enfoque" },
+      "value": { "en": "Product · AI · Data", "es": "Producto · IA · Datos" }
+    },
+    {
+      "label": { "en": "Status", "es": "Estado" },
+      "value": { "en": "Shipped", "es": "Entregado" },
+      "ok": true
+    }
+  ],
+  "filtersLabel": {
+    "en": "Filter projects",
+    "es": "Filtrar proyectos"
+  },
+  "filterLabels": {
+    "all": { "en": "All", "es": "Todos" },
+    "product": { "en": "Product", "es": "Producto" },
+    "mobile": { "en": "Mobile", "es": "Móvil" },
+    "ai": { "en": "AI", "es": "IA" }
+  },
+  "sorted": {
+    "en": "Sorted by recency ↓",
+    "es": "Ordenado por fecha ↓"
+  },
+  "projects": [
+    {
+      "id": "smashly",
+      "name": "Smashly",
+      "kind": "product",
+      "kicker": {
+        "en": "Web + AI · 2025 → Now",
+        "es": "Web + IA · 2025 → Ahora"
+      },
+      "tag": { "en": "Live product", "es": "Producto en vivo" },
+      "tagAccent": true,
+      "cover": "smashly",
+      "meta": "2025 · Web · AI",
+      "mediaAlt": {
+        "en": "Smashly product interface",
+        "es": "Interfaz del producto Smashly"
+      },
+      "summary": {
+        "en": "Padel marketplace and AI recommender; a thesis project now live as a SaaS.",
+        "es": "Marketplace de pádel y recomendador con IA; un TFG que hoy es un SaaS en vivo."
+      },
+      "description": {
+        "en": "A padel marketplace and recommender: more than 1,000 rackets, side-by-side comparison, AI recommendations and price alerts, plus a SaaS layer for shops. Started as my thesis, now live at smashly-app.es.",
+        "es": "Un marketplace de pádel con recomendador: más de 1.000 palas, comparación lado a lado, recomendaciones con IA y alertas de precio, además de una capa SaaS para tiendas. Empezó como TFG y hoy está en vivo en smashly-app.es."
+      },
+      "facts": [
+        {
+          "label": { "en": "Role", "es": "Rol" },
+          "value": { "en": "Founder + full-stack", "es": "Fundador + full-stack" }
+        },
+        {
+          "label": { "en": "Stack", "es": "Stack" },
+          "value": { "en": "React · Supabase", "es": "React · Supabase" }
+        },
+        {
+          "label": { "en": "Status", "es": "Estado" },
+          "value": { "en": "Live", "es": "En vivo" }
+        }
+      ],
+      "tags": [
+        { "text": "React" },
+        { "text": "TypeScript" },
+        { "text": "Supabase" },
+        { "text": "Python" },
+        { "text": "AI", "accent": true }
+      ],
+      "links": [
+        {
+          "label": { "en": "Visit the product", "es": "Visitar el producto" },
+          "href": "https://smashly-app.es",
+          "external": true
+        },
+        { "disabled": true }
+      ],
+      "homeLink": "archive"
+    },
+    {
+      "id": "orial",
+      "name": "Orial",
+      "kind": "mobile",
+      "kicker": { "en": "Mobile · 2026", "es": "Móvil · 2026" },
+      "tag": { "en": "Case study", "es": "Caso de estudio" },
+      "tagAccent": true,
+      "cover": "orial",
+      "coverCopy": {
+        "top": { "en": "Health · performance", "es": "Salud · rendimiento" },
+        "bottom": {
+          "en": "Nutrition · hydration · caffeine · training",
+          "es": "Nutrición · hidratación · cafeína · entrenamiento"
+        }
+      },
+      "meta": "2026 · Mobile",
+      "summary": {
+        "en": "Health and performance app: nutrition, recovery, training and iOS widgets.",
+        "es": "App de salud y rendimiento: nutrición, recuperación, entrenamiento y widgets de iOS."
+      },
+      "description": {
+        "en": "A health and performance app: nutrition, hydration, caffeine and training in one place, with WHOOP recovery data, iOS widgets and a bank connection. Local-first where it matters, Supabase where it has to sync.",
+        "es": "Una app de salud y rendimiento: nutrición, hidratación, cafeína y entrenamiento en un solo sitio, con recuperación de WHOOP, widgets de iOS y conexión bancaria. Local-first donde importa, Supabase donde tiene que sincronizar."
+      },
+      "facts": [
+        {
+          "label": { "en": "Role", "es": "Rol" },
+          "value": { "en": "Solo design + build", "es": "Diseño + desarrollo en solitario" }
+        },
+        {
+          "label": { "en": "Platform", "es": "Plataforma" },
+          "value": { "en": "iOS · Android", "es": "iOS · Android" }
+        },
+        {
+          "label": { "en": "Status", "es": "Estado" },
+          "value": { "en": "In use", "es": "En uso" }
+        }
+      ],
+      "tags": [
+        { "text": "Expo" },
+        { "text": "SQLite" },
+        { "text": "Drizzle" },
+        { "text": "Supabase" },
+        { "text": "Mobile", "accent": true }
+      ],
+      "links": [
+        {
+          "label": { "en": "Read case study", "es": "Leer el caso" },
+          "href": "/work/orial"
+        },
+        { "disabled": true }
+      ],
+      "homeLink": "case",
+      "caseStudy": true
+    },
+    {
+      "id": "jarvis",
+      "name": "Jarvis",
+      "kind": "ai",
+      "kicker": { "en": "AI · 2026", "es": "IA · 2026" },
+      "tag": { "en": "Private build", "es": "Proyecto privado" },
+      "cover": "jarvis",
+      "coverCopy": {
+        "top": { "en": "Personal assistant · always on", "es": "Asistente personal · siempre activo" },
+        "bottom": { "en": "09 agents · memory · cron · voice", "es": "09 agentes · memoria · cron · voz" }
+      },
+      "meta": "2026 · AI",
+      "summary": {
+        "en": "A 24/7 assistant with nine persona agents, memory and real integrations.",
+        "es": "Un asistente 24/7 con nueve agentes de personalidad, memoria e integraciones reales."
+      },
+      "description": {
+        "en": "A personal assistant that runs 24/7 on a VPS: nine agents with separate roles and shared memory, scheduled jobs, and live connections to Notion, WHOOP, CalDAV and Telegram. Voice in, actions out.",
+        "es": "Un asistente personal que corre 24/7 en un VPS: nueve agentes con roles separados y memoria compartida, tareas programadas y conexiones en vivo con Notion, WHOOP, CalDAV y Telegram. Entra voz, salen acciones."
+      },
+      "facts": [
+        {
+          "label": { "en": "Role", "es": "Rol" },
+          "value": { "en": "Design + build", "es": "Diseño + desarrollo" }
+        },
+        {
+          "label": { "en": "Runtime", "es": "Ejecución" },
+          "value": { "en": "VPS · cron", "es": "VPS · cron" }
+        },
+        {
+          "label": { "en": "Status", "es": "Estado" },
+          "value": { "en": "Always on", "es": "Siempre activo" }
+        }
+      ],
+      "tags": [
+        { "text": "Agents" },
+        { "text": "Memory" },
+        { "text": "Automation" },
+        { "text": "AI", "accent": true }
+      ],
+      "links": [{ "disabled": true }],
+      "homeLink": "archive"
+    },
+    {
+      "id": "durit",
+      "name": "DURIT Prospector",
+      "kind": "product",
+      "kicker": {
+        "en": "Product + data · 2026",
+        "es": "Producto + datos · 2026"
+      },
+      "tag": { "en": "Client work", "es": "Trabajo de cliente" },
+      "cover": "durit",
+      "coverCopy": {
+        "top": { "en": "B2B prospecting · client work", "es": "Prospección B2B · trabajo de cliente" },
+        "bottom": { "en": "Python · Next.js · Supabase", "es": "Python · Next.js · Supabase" }
+      },
+      "meta": "2026 · Product",
+      "summary": {
+        "en": "A B2B prospecting pipeline that replaced a spreadsheet workflow.",
+        "es": "Un pipeline de prospección B2B que sustituyó un flujo de hojas de cálculo."
+      },
+      "description": {
+        "en": "A B2B prospecting pipeline built for Durit Ibérica: collect company data, qualify it with AI, then review and export from a Next.js dashboard backed by Supabase. Built to replace a spreadsheet workflow, not to demo.",
+        "es": "Un pipeline de prospección B2B construido para Durit Ibérica: recoger datos de empresas, cualificarlos con IA y revisarlos y exportarlos desde un panel en Next.js sobre Supabase. Hecho para sustituir un flujo de hojas de cálculo, no para una demo."
+      },
+      "facts": [
+        {
+          "label": { "en": "Role", "es": "Rol" },
+          "value": { "en": "Design + build", "es": "Diseño + desarrollo" }
+        },
+        {
+          "label": { "en": "Client", "es": "Cliente" },
+          "value": { "en": "Durit Ibérica", "es": "Durit Ibérica" }
+        },
+        {
+          "label": { "en": "Status", "es": "Estado" },
+          "value": { "en": "Delivered", "es": "Entregado" }
+        }
+      ],
+      "tags": [
+        { "text": "Python" },
+        { "text": "Next.js" },
+        { "text": "Supabase" },
+        { "text": "AI", "accent": true }
+      ],
+      "links": [{ "disabled": true }],
+      "homeLink": "archive"
+    }
+  ],
+  "cta": {
+    "eyebrow": { "en": "Archive note", "es": "Nota de archivo" },
+    "title": {
+      "en": "Older work lives|on *GitHub*.",
+      "es": "El trabajo antiguo|vive en *GitHub*."
+    },
+    "body": {
+      "en": "University projects, abandoned prototypes and the occasional one-file experiment. No curation, just the commit history.",
+      "es": "Proyectos de universidad, prototipos abandonados y algún experimento de un solo archivo. Sin curaduría, solo el historial de commits."
+    },
+    "button": {
+      "en": "Browse repositories",
+      "es": "Ver repositorios"
+    },
+    "note": {
+      "en": "2022 → 2026 · GitHub",
+      "es": "2022 → 2026 · GitHub"
+    }
+  }
+}

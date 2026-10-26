@@ -1,0 +1,160 @@
+---
+import Arrow from "../components/Arrow.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import { cases, getProject, site } from "../data/content";
+import { pathFor, t, type Locale } from "../lib/i18n";
+import { inline } from "../lib/text";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const study = cases.orial;
+const project = getProject("orial");
+const twoDigits = (value: number) => String(value).padStart(2, "0");
+---
+
+<section class="case-hero">
+  <div class="shell">
+    <Breadcrumb
+      items={[
+        { label: t(site.ui.nav.index, locale), href: pathFor("/", locale) },
+        { label: t(site.ui.nav.work, locale), href: pathFor("/work", locale) },
+        { label: project.name },
+      ]}
+    />
+
+    <div class="case-title-row">
+      <div>
+        <span class="eyebrow"><span class="idx">CS·01</span>{t(study.eyebrow, locale)}</span>
+        <h1 class="case-title">{project.name}<span class="period">.</span></h1>
+        <p class="case-lead">{t(study.lead, locale)}</p>
+      </div>
+      <aside>
+        <dl class="case-specs">
+          {
+            study.specs.map((spec) => (
+              <div>
+                <dt>{t(spec.label, locale)}</dt>
+                <dd style={spec.ok ? "color: var(--ok)" : undefined}>{t(spec.value, locale)}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <div class="shell">
+    <figure class="case-cover case-cover-plate reveal">
+      <div class="case-plate-brand">
+        <img src={study.cover.icon} alt={t(study.cover.alt, locale)} />
+        <div class="case-plate-title">
+          {study.cover.plateTitle}
+          <span>{t(study.cover.plateSub, locale)}</span>
+        </div>
+      </div>
+      <div class="case-plate-list">
+        {study.cover.list.map((item) => <span>{t(item, locale)}</span>)}
+      </div>
+      <figcaption>{t(study.cover.caption, locale)}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="shell case-layout">
+  <aside class="case-index" aria-label={t(study.contentsLabel, locale)}>
+    <div class="mono">{t(study.contentsLabel, locale)}</div>
+    <nav>
+      {
+        study.contents.map((item, index) => (
+          <a href={`#${item.id}`}>
+            {twoDigits(index + 1)} · {t(item.label, locale)}
+          </a>
+        ))
+      }
+    </nav>
+  </aside>
+
+  <article class="case-body">
+    {
+      study.blocks.map((block, index) => (
+        <section class="case-block reveal" id={block.id}>
+          <span class="eyebrow">
+            {twoDigits(index + 1)} · {t(block.eyebrow, locale)}
+          </span>
+          <h2 set:html={inline(t(block.title, locale))} />
+          {block.paragraphs.map((paragraph) => (
+            <p>{t(paragraph, locale)}</p>
+          ))}
+
+          {block.metrics.length > 0 && (
+            <div class="metrics">
+              {block.metrics.map((metric) => (
+                <div class="metric">
+                  <div class="value">{metric.value}</div>
+                  <div class="label">{t(metric.label, locale)}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {block.decisions.length > 0 && (
+            <div class="decisions">
+              {block.decisions.map((decision) => (
+                <div class="decision">
+                  <span class="n">{decision.n}</span>
+                  <div>
+                    <h3>{t(decision.title, locale)}</h3>
+                    <p>{t(decision.body, locale)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {block.architecture && (
+            <div class="arch" role="img" aria-label={t(block.architecture.alt, locale)}>
+              {block.architecture.rows.map((row) =>
+                row.length === 1 && row[0].type === "arrow" ? (
+                  <div class="arch-down">{row[0].dir}</div>
+                ) : (
+                  <div class="arch-row">
+                    {row.map((item) =>
+                      item.type === "node" ? (
+                        <div class={item.accent ? "arch-node is-accent" : "arch-node"}>
+                          <b>{item.k}</b>
+                          {item.text ? t(item.text, locale) : ""}
+                        </div>
+                      ) : (
+                        <span class="arch-arrow">{item.dir}</span>
+                      )
+                    )}
+                  </div>
+                )
+              )}
+            </div>
+          )}
+        </section>
+      ))
+    }
+  </article>
+</div>
+
+<section class="case-next">
+  <div class="shell">
+    <a href={pathFor(study.next.href, locale)}>
+      <span>
+        <span class="mono" style="color: var(--faint); display: block; margin-bottom: 8px">
+          {t(study.next.label, locale)}
+        </span>
+        <span class="next-title">{study.next.title}</span>
+      </span>
+      <span class="link-arrow">
+        {t(study.next.cta, locale)}
+        <Arrow />
+      </span>
+    </a>
+  </div>
+</section>
