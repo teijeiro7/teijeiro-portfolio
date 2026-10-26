@@ -1,0 +1,25 @@
+{
+  "code": { "en": "Error · 404 · Route not found", "es": "Error · 404 · Route not found" },
+  "title": {
+    "en": "This page was|never *committed*.",
+    "es": "This page was|never *committed*."
+  },
+  "body": {
+    "en": "The URL is wrong, the branch was deleted, or the link rotted. All three happen. The index still works.",
+    "es": "The URL is wrong, the branch was deleted, or the link rotted. All three happen. The index still works."
+  },
+  "terminal": [
+    {
+      "prompt": "$",
+      "command": "git log --oneline -- /this-page",
+      "output": "fatal: your current branch has no commits yet"
+    },
+    {
+      "prompt": "$",
+      "command": "git checkout main",
+      "output": "Switched to branch 'main' · 12 files changed"
+    }
+  ],
+  "primary": { "en": "Back to index", "es": "Back to index" },
+  "secondary": { "en": "See the work", "es": "See the work" }
+}

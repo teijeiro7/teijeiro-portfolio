@@ -1,0 +1,112 @@
+---
+import "../styles/site.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/content";
+import { htmlLang, pathFor, t, type Locale } from "../lib/i18n";
+
+type PageKey = keyof typeof site.pages;
+
+interface Props {
+  locale: Locale;
+  page: PageKey;
+  /** Locale-neutral path, e.g. `/work/orial`. */
+  path: string;
+  noindex?: boolean;
+}
+
+const { locale, page, path, noindex = false } = Astro.props;
+
+const meta = site.pages[page];
+const title = t(meta.title, locale);
+const description = t(meta.description, locale);
+
+/* Astro builds directory-style routes (`/work/index.html`), so the canonical
+   form carries the trailing slash the sitemap uses. */
+const asUrl = (href: string) => {
+  const url = new URL(href, site.meta.site).href;
+  return url.endsWith("/") ? url : `${url}/`;
+};
+
+const canonical = asUrl(pathFor(path, locale));
+const englishUrl = asUrl(pathFor(path, "en"));
+const spanishUrl = asUrl(pathFor(path, "es"));
+const ogImage = new URL("/og.png", site.meta.site).href;
+
+const currentPath = path;
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <>
+          <link rel="canonical" href={canonical} />
+          <link rel="alternate" hreflang="en" href={englishUrl} />
+          <link rel="alternate" hreflang="es" href={spanishUrl} />
+          <link rel="alternate" hreflang="x-default" href={englishUrl} />
+        </>
+      )
+    }
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.meta.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={locale === "es" ? "es_ES" : "en_GB"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#f5f3ee" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var saved = localStorage.getItem("theme");
+          var system = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+          var theme = saved === "light" || saved === "dark" ? saved : system;
+          document.documentElement.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "dark" ? "#0d0c0b" : "#f5f3ee");
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">{t(site.ui.skip, locale)}</a>
+    <Nav locale={locale} currentPath={currentPath} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script>
+      import "../scripts/site";
+    </script>
+  </body>
+</html>

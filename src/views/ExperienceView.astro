@@ -1,0 +1,204 @@
+---
+import Breadcrumb from "../components/Breadcrumb.astro";
+import CtaBand from "../components/CtaBand.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { experience, site } from "../data/content";
+import { pathFor, t, type Locale } from "../lib/i18n";
+import { inline } from "../lib/text";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="page-head">
+  <div class="shell">
+    <Breadcrumb
+      items={[
+        { label: t(site.ui.nav.index, locale), href: pathFor("/", locale) },
+        { label: t(site.ui.nav.experience, locale) },
+      ]}
+    />
+    <div class="page-head-grid">
+      <div>
+        <span class="eyebrow"><span class="idx">03</span>{t(experience.eyebrow, locale)}</span>
+        <h1 class="h1" set:html={inline(t(experience.title, locale))} />
+        <p class="lead page-lead">{t(experience.lead, locale)}</p>
+      </div>
+      <aside class="head-aside">
+        <dl class="head-facts">
+          {
+            experience.facts.map((fact) => (
+              <div>
+                <dt>{t(fact.label, locale)}</dt>
+                <dd>{t(fact.value, locale)}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0; border-top: 0">
+  <div class="shell">
+    <SectionHead
+      num="01"
+      eyebrow={t(experience.timeline.eyebrow, locale)}
+      title={t(experience.timeline.title, locale)}
+      aside={t(experience.timeline.aside, locale)}
+    />
+
+    <div class="timeline">
+      {
+        experience.roles.map((role) => (
+          <article class="tl-row reveal">
+            <div class="tl-when">
+              {role.current && role.currentLabel && (
+                <span class="now">
+                  <i class="dot" />
+                  {t(role.currentLabel, locale)}
+                </span>
+              )}
+              {t(role.when, locale)}
+            </div>
+            <div class="tl-main">
+              {role.logo ? (
+                <img class="tl-logo" src={role.logo} alt={role.logoAlt} loading="lazy" />
+              ) : (
+                <span class="tl-logo tl-logo-text" aria-hidden="true">
+                  {role.logoText}
+                </span>
+              )}
+              <div>
+                <h3 class="tl-role">{t(role.role, locale)}</h3>
+                <div class="tl-org">{t(role.org, locale)}</div>
+                <ul class="tl-bullets">
+                  {role.bullets.map((bullet) => (
+                    <li>{t(bullet, locale)}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div class="tl-side">
+              {role.tags.map((tag) => (
+                <span class={tag.accent ? "tag is-accent" : "tag"}>{tag.text}</span>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section" id="now">
+  <div class="shell">
+    <SectionHead
+      num="02"
+      eyebrow={t(experience.now.eyebrow, locale)}
+      title={t(experience.now.title, locale)}
+      aside={t(experience.now.aside, locale)}
+    />
+
+    <div class="about-now">
+      <div class="about-copy reveal">
+        <p class="lead">{t(experience.now.lead, locale)}</p>
+        {experience.now.body.map((paragraph) => <p class="body">{t(paragraph, locale)}</p>)}
+      </div>
+      <dl class="now-facts reveal">
+        {
+          experience.now.facts.map((fact) => (
+            <div>
+              <dt>{t(fact.label, locale)}</dt>
+              <dd>{t(fact.value, locale)}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <SectionHead
+      num="03"
+      eyebrow={t(experience.education.eyebrow, locale)}
+      title={t(experience.education.title, locale)}
+      aside={t(experience.education.aside, locale)}
+    />
+
+    <div class="edu-grid">
+      {
+        experience.education.cards.map((card) => (
+          <div class="edu-card reveal">
+            <span class="when">{t(card.when, locale)}</span>
+            <h3>{t(card.title, locale)}</h3>
+            <p>{t(card.body, locale)}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <SectionHead
+      num="04"
+      eyebrow={t(experience.skills.eyebrow, locale)}
+      title={t(experience.skills.title, locale)}
+      aside={t(experience.skills.aside, locale)}
+    />
+
+    <div class="skills-grid reveal">
+      {
+        experience.skills.groups.map((group) => (
+          <div class="skill-col">
+            <h3>{t(group.title, locale)}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <SectionHead
+      num="05"
+      eyebrow={t(experience.principles.eyebrow, locale)}
+      title={t(experience.principles.title, locale)}
+    />
+
+    <div class="principles">
+      {
+        experience.principles.items.map((item, index) => (
+          <div class="principle reveal">
+            <span class="n">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{t(item.title, locale)}</h3>
+            <p>{t(item.body, locale)}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<CtaBand
+  eyebrow={t(experience.cta.eyebrow, locale)}
+  title={t(experience.cta.title, locale)}
+  body={t(experience.cta.body, locale)}
+  button={t(experience.cta.button, locale)}
+  note={t(experience.cta.note, locale)}
+  href={pathFor("/contact", locale)}
+/>

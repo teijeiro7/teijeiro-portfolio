@@ -1,0 +1,44 @@
+---
+import Arrow from "../components/Arrow.astro";
+import { notFound } from "../data/content";
+import { inline } from "../lib/text";
+
+const { code, title, body, terminal, primary, secondary } = notFound;
+---
+
+<section class="notfound">
+  <div class="nf-inner">
+    <div class="nf-code">{code.en}</div>
+    <h1 set:html={inline(title.en)} />
+    <p>{body.en}</p>
+
+    <div class="nf-terminal">
+      <div class="terminal-bar">
+        <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>teijeiro.portfolio · zsh</span>
+        <span>exit 1</span>
+      </div>
+      <div class="terminal-body">
+        {
+          terminal.map((line) => (
+            <>
+              <span class="prompt">{line.prompt}</span> <span>{line.command}</span>
+              <br />
+              <span class="dim">{line.output}</span>
+              <br />
+              <br />
+            </>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="nf-actions">
+      <a class="btn" href="/">
+        {primary.en}
+        <Arrow />
+      </a>
+      <a class="btn btn-ghost" href="/work">{secondary.en}</a>
+    </div>
+  </div>
+</section>

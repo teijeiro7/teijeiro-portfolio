@@ -1,0 +1,88 @@
+{
+  "eyebrow": { "en": "Get in touch", "es": "Hablemos" },
+  "title": { "en": "Say *hi*.", "es": "Di *hola*." },
+  "lead": {
+    "en": "Always up for a conversation about product, AI or a hard interface problem. I am a software engineer at Fusuma in Madrid; if you are building something and think I can help, write.",
+    "es": "Siempre dispuesto a hablar de producto, IA o un problema difícil de interfaz. Soy ingeniero de software en Fusuma, en Madrid; si estás construyendo algo y crees que puedo ayudar, escribe."
+  },
+  "facts": [
+    {
+      "label": { "en": "Based in", "es": "Ubicación" },
+      "value": { "en": "Madrid, Spain", "es": "Madrid, España" },
+      "sub": { "en": "40.4168° N, 3.7038° W", "es": "40.4168° N, 3.7038° W" }
+    },
+    {
+      "label": { "en": "Remote", "es": "Remoto" },
+      "value": { "en": "Remote friendly|Based in Madrid", "es": "Abierto a remoto|Con base en Madrid" }
+    },
+    {
+      "label": { "en": "Response", "es": "Respuesta" },
+      "value": { "en": "Usually within a few days|EN / ES", "es": "Normalmente en pocos días|EN / ES" }
+    },
+    {
+      "label": { "en": "Local time", "es": "Hora local" },
+      "value": { "en": "Madrid|Mon to Fri", "es": "Madrid|Lun a Vie" },
+      "clock": true
+    }
+  ],
+  "form": {
+    "head": { "en": "Send a message", "es": "Enviar un mensaje" },
+    "status": { "en": "Inbox open", "es": "Bandeja abierta" },
+    "name": { "en": "Name", "es": "Nombre" },
+    "email": { "en": "Email", "es": "Email" },
+    "subject": { "en": "Subject", "es": "Asunto" },
+    "message": { "en": "Message", "es": "Mensaje" },
+    "placeholders": {
+      "name": { "en": "Your name", "es": "Tu nombre" },
+      "email": { "en": "you@company.com", "es": "tu@empresa.com" },
+      "subject": {
+        "en": "Project, question or collaboration",
+        "es": "Proyecto, pregunta o colaboración"
+      },
+      "message": {
+        "en": "A few lines about what you have in mind.",
+        "es": "Unas líneas sobre lo que tienes en mente."
+      }
+    },
+    "submit": { "en": "Send message", "es": "Enviar mensaje" },
+    "defaultSubject": { "en": "Hello from the portfolio", "es": "Hola desde el portfolio" },
+    "note": {
+      "en": "Opens your mail app with the message ready to send.",
+      "es": "Abre tu aplicación de correo con el mensaje listo para enviar."
+    }
+  },
+  "faq": {
+    "eyebrow": { "en": "Before you write", "es": "Antes de escribir" },
+    "title": { "en": "Common questions.", "es": "Preguntas frecuentes." },
+    "body": {
+      "en": "Still unsure whether to reach out? These are the three I get most.",
+      "es": "¿Aún dudas si escribir? Estas son las tres que más me llegan."
+    },
+    "items": [
+      {
+        "q": { "en": "What are you working on now?", "es": "¿En qué trabajas ahora?" },
+        "a": {
+          "en": "I am a software engineer at Fusuma Advisory, working on an accounting SaaS: bank reconciliation, payments, batch processing and the Holded integration. Outside work I build Orial and Jarvis.",
+          "es": "Soy ingeniero de software en Fusuma Advisory, trabajando en un SaaS contable: conciliación bancaria, pagos, procesamiento por lotes y la integración con Holded. Fuera del trabajo construyo Orial y Jarvis."
+        }
+      },
+      {
+        "q": { "en": "Do you freelance?", "es": "¿Haces freelance?" },
+        "a": {
+          "en": "Selectively, outside my day job. Small, well-scoped builds (landing pages, AI integrations, design systems) are a good fit. I will say no if the scope or the timing does not work.",
+          "es": "De forma selectiva, fuera de mi trabajo diario. Encajan bien proyectos pequeños y bien acotados (landing pages, integraciones de IA, design systems). Diré que no si el alcance o los tiempos no funcionan."
+        }
+      },
+      {
+        "q": {
+          "en": "What should I include in the first email?",
+          "es": "¿Qué debería incluir en el primer email?"
+        },
+        "a": {
+          "en": "The problem, the team and the timeline. A link to the product helps more than a job description. I read every serious message.",
+          "es": "El problema, el equipo y el plazo. Un enlace al producto ayuda más que una descripción del puesto. Leo todos los mensajes serios."
+        }
+      }
+    ]
+  }
+}

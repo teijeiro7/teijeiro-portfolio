@@ -1,0 +1,203 @@
+{
+  "hero": {
+    "eyebrow": {
+      "en": "Portfolio 2026",
+      "es": "Portfolio 2026"
+    },
+    "status": {
+      "en": "Software Engineer at Fusuma",
+      "es": "Ingeniero de Software en Fusuma"
+    },
+    "lead": {
+      "en": "Software engineer at Fusuma, Madrid. I build product surfaces where AI, clean architecture and interface craft meet, from accounting workflows to a health app and a 24/7 assistant.",
+      "es": "Ingeniero de software en Fusuma, Madrid. Construyo productos donde la IA, la arquitectura limpia y el oficio de la interfaz se encuentran: desde flujos contables hasta una app de salud y un asistente 24/7."
+    },
+    "focus": {
+      "en": "Full-stack|+ edge AI",
+      "es": "Full-stack|+ IA en el edge"
+    },
+    "ctaPrimary": {
+      "en": "Selected work",
+      "es": "Trabajo seleccionado"
+    },
+    "ctaSecondary": {
+      "en": "About me",
+      "es": "Sobre mí"
+    },
+    "facts": [
+      {
+        "en": "Madrid · 40.41° N",
+        "es": "Madrid · 40.41° N"
+      },
+      {
+        "en": "Fusuma · Software Engineer",
+        "es": "Fusuma · Ingeniero de Software"
+      },
+      {
+        "en": "URJC · BSc Software Engineering",
+        "es": "URJC · Grado en Ingeniería del Software"
+      },
+      {
+        "en": "ES native · EN B2",
+        "es": "ES nativo · EN B2"
+      }
+    ],
+    "portraitAlt": {
+      "en": "Cristian Teijeiro in a dark suit, studio portrait",
+      "es": "Cristian Teijeiro con traje oscuro, retrato de estudio"
+    },
+    "portraitRole": {
+      "en": "Software Engineer · Madrid",
+      "es": "Ingeniero de Software · Madrid"
+    },
+    "portraitFoot": {
+      "en": "Portrait / Madrid",
+      "es": "Retrato / Madrid"
+    }
+  },
+  "strip": [
+    "TypeScript",
+    "React 19",
+    "TanStack",
+    "Astro",
+    "Hono",
+    "Postgres",
+    "Supabase",
+    "Cloudflare Workers",
+    "Expo",
+    "Python"
+  ],
+  "selected": {
+    "eyebrow": {
+      "en": "Selected work",
+      "es": "Trabajo seleccionado"
+    },
+    "title": {
+      "en": "Three things|worth *opening*.",
+      "es": "Tres cosas que|merecen *abrirse*."
+    },
+    "count": {
+      "en": "03 records|2025 → 2026",
+      "es": "03 registros|2025 → 2026"
+    },
+    "items": ["orial", "smashly", "jarvis"],
+    "all": {
+      "en": "All projects",
+      "es": "Todos los proyectos"
+    }
+  },
+  "experience": {
+    "eyebrow": {
+      "en": "Experience",
+      "es": "Trayectoria"
+    },
+    "title": {
+      "en": "Recent *history*.",
+      "es": "Historia *reciente*."
+    },
+    "body": {
+      "en": "Production engineering at Fusuma, a spring at KPMG, digital assurance at PwC and six months on the Apple floor. Different rooms, same job: make complex things feel simple.",
+      "es": "Ingeniería de producto en Fusuma, una primavera en KPMG, assurance digital en PwC y seis meses en la planta de Apple. Habitaciones distintas, el mismo trabajo: hacer que lo complejo se sienta simple."
+    },
+    "cta": {
+      "en": "Full trajectory",
+      "es": "Trayectoria completa"
+    },
+    "roles": [
+      {
+        "when": {
+          "en": "Jun 2026 · Now",
+          "es": "Jun 2026 · Ahora"
+        },
+        "role": {
+          "en": "Software Engineer",
+          "es": "Ingeniero de Software"
+        },
+        "org": {
+          "en": "Fusuma · Madrid",
+          "es": "Fusuma · Madrid"
+        },
+        "kind": {
+          "en": "Full-time",
+          "es": "Jornada completa"
+        }
+      },
+      {
+        "when": {
+          "en": "Mar 2026 · Jun 2026",
+          "es": "Mar 2026 · Jun 2026"
+        },
+        "role": {
+          "en": "Technology Intern",
+          "es": "Becario de Tecnología"
+        },
+        "org": {
+          "en": "KPMG · Madrid",
+          "es": "KPMG · Madrid"
+        },
+        "kind": {
+          "en": "Internship",
+          "es": "Prácticas"
+        }
+      },
+      {
+        "when": {
+          "en": "Oct 2025 · Feb 2026",
+          "es": "Oct 2025 · Feb 2026"
+        },
+        "role": {
+          "en": "Digital Assurance Intern",
+          "es": "Becario de Assurance Digital"
+        },
+        "org": {
+          "en": "PwC · Madrid",
+          "es": "PwC · Madrid"
+        },
+        "kind": {
+          "en": "Internship",
+          "es": "Prácticas"
+        }
+      },
+      {
+        "when": {
+          "en": "Jul 2025 · Jan 2026",
+          "es": "Jul 2025 · Ene 2026"
+        },
+        "role": {
+          "en": "Sales Specialist",
+          "es": "Especialista de Ventas"
+        },
+        "org": {
+          "en": "Apple · Madrid",
+          "es": "Apple · Madrid"
+        },
+        "kind": {
+          "en": "Retail",
+          "es": "Retail"
+        }
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": {
+      "en": "Contact",
+      "es": "Contacto"
+    },
+    "title": {
+      "en": "Have a problem|worth *solving*?",
+      "es": "¿Tienes un problema|que merezca *resolverse*?"
+    },
+    "body": {
+      "en": "If you are building something in product, AI or interface engineering, I would like to hear about it. Madrid or remote.",
+      "es": "Si estás construyendo algo de producto, IA o ingeniería de interfaz, me gustaría saberlo. Madrid o remoto."
+    },
+    "button": {
+      "en": "Start a conversation",
+      "es": "Empezar una conversación"
+    },
+    "note": {
+      "en": "Email or LinkedIn · EN / ES",
+      "es": "Email o LinkedIn · EN / ES"
+    }
+  }
+}

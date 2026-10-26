@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "name": "Cristian Teijeiro",
+    "site": "https://teijeiro7.vercel.app",
+    "email": "teijeiroparga@outlook.com",
+    "github": "https://github.com/teijeiro7",
+    "linkedin": "https://www.linkedin.com/in/cristianteijeiroparga/",
+    "location": {
+      "en": "Madrid, Spain",
+      "es": "Madrid, España"
+    },
+    "coordinates": "40.4168° N, 3.7038° W"
+  },
+  "pages": {
+    "home": {
+      "title": {
+        "en": "Cristian Teijeiro · Software Engineer",
+        "es": "Cristian Teijeiro · Ingeniero de Software"
+      },
+      "description": {
+        "en": "Software engineer in Madrid. Product surfaces where AI, clean architecture and interface craft meet.",
+        "es": "Ingeniero de software en Madrid. Productos donde la IA, la arquitectura limpia y el oficio de la interfaz se encuentran."
+      }
+    },
+    "work": {
+      "title": {
+        "en": "Work · Cristian Teijeiro",
+        "es": "Proyectos · Cristian Teijeiro"
+      },
+      "description": {
+        "en": "Four products taken from sketch to production, with what is public and what is not.",
+        "es": "Cuatro productos llevados del boceto a producción, con lo que es público y lo que no."
+      }
+    },
+    "orial": {
+      "title": {
+        "en": "Orial · Case study · Cristian Teijeiro",
+        "es": "Orial · Caso de estudio · Cristian Teijeiro"
+      },
+      "description": {
+        "en": "Health and performance app: local-first daily logging, WHOOP recovery, iOS widgets and Supabase sync.",
+        "es": "App de salud y rendimiento: registro diario local-first, recuperación de WHOOP, widgets de iOS y sincronización con Supabase."
+      }
+    },
+    "experience": {
+      "title": {
+        "en": "Experience · Cristian Teijeiro",
+        "es": "Trayectoria · Cristian Teijeiro"
+      },
+      "description": {
+        "en": "Product engineering at Fusuma, KPMG, PwC, Apple and three seasons coaching futsal.",
+        "es": "Ingeniería de producto en Fusuma, KPMG, PwC, Apple y tres temporadas entrenando fútbol sala."
+      }
+    },
+    "contact": {
+      "title": {
+        "en": "Contact · Cristian Teijeiro",
+        "es": "Contacto · Cristian Teijeiro"
+      },
+      "description": {
+        "en": "Write about product, AI or a hard interface problem.",
+        "es": "Escribe sobre producto, IA o un problema difícil de interfaz."
+      }
+    },
+    "notFound": {
+      "title": {
+        "en": "404 · Cristian Teijeiro",
+        "es": "404 · Cristian Teijeiro"
+      },
+      "description": {
+        "en": "This page was never committed.",
+        "es": "This page was never committed."
+      }
+    }
+  },
+  "ui": {
+    "skip": {
+      "en": "Skip to content",
+      "es": "Saltar al contenido"
+    },
+    "role": {
+      "en": "Software Engineer",
+      "es": "Ingeniero de Software"
+    },
+    "menu": {
+      "en": "Menu",
+      "es": "Menú"
+    },
+    "theme": {
+      "en": "Toggle theme",
+      "es": "Cambiar tema"
+    },
+    "language": {
+      "en": "Language",
+      "es": "Idioma"
+    },
+    "nav": {
+      "index": {
+        "en": "Index",
+        "es": "Inicio"
+      },
+      "work": {
+        "en": "Work",
+        "es": "Proyectos"
+      },
+      "experience": {
+        "en": "Experience",
+        "es": "Trayectoria"
+      },
+      "contact": {
+        "en": "Contact",
+        "es": "Contacto"
+      }
+    },
+    "backToTop": {
+      "en": "Back to top",
+      "es": "Volver arriba"
+    },
+    "status": {
+      "en": "Software Engineer · Fusuma",
+      "es": "Ingeniero de Software · Fusuma"
+    },
+    "city": {
+      "en": "Madrid · ES",
+      "es": "Madrid · ES"
+    },
+    "footer": {
+      "pages": {
+        "en": "Pages",
+        "es": "Páginas"
+      },
+      "elsewhere": {
+        "en": "Elsewhere",
+        "es": "En otros sitios"
+      },
+      "basedIn": {
+        "en": "Based in",
+        "es": "Ubicación"
+      },
+      "colophon": {
+        "en": "Colophon",
+        "es": "Colofón"
+      },
+      "location": {
+        "en": "Madrid, Spain",
+        "es": "Madrid, España"
+      },
+      "fonts": {
+        "en": "Inter + JetBrains Mono",
+        "es": "Inter + JetBrains Mono"
+      },
+      "stack": {
+        "en": "Astro · static",
+        "es": "Astro · estático"
+      },
+      "trackers": {
+        "en": "No trackers",
+        "es": "Sin rastreadores"
+      },
+      "built": {
+        "en": "Built to be read",
+        "es": "Hecho para leerse"
+      }
+    },
+    "labels": {
+      "codePrivate": {
+        "en": "Code private",
+        "es": "Código privado"
+      },
+      "caseStudy": {
+        "en": "Case study",
+        "es": "Caso de estudio"
+      },
+      "readCase": {
+        "en": "Read case study",
+        "es": "Leer el caso"
+      },
+      "visitProduct": {
+        "en": "Visit the product",
+        "es": "Visitar el producto"
+      },
+      "allProjects": {
+        "en": "All projects",
+        "es": "Todos los proyectos"
+      },
+      "repositories": {
+        "en": "Browse repositories",
+        "es": "Ver repositorios"
+      },
+      "copy": {
+        "en": "Copy",
+        "es": "Copiar"
+      },
+      "copied": {
+        "en": "Copied",
+        "es": "Copiado"
+      },
+      "opensMail": {
+        "en": "Opens your mail app with the message ready to send.",
+        "es": "Abre tu aplicación de correo con el mensaje listo para enviar."
+      },
+      "openProject": {
+        "en": "Open",
+        "es": "Abrir"
+      }
+    }
+  }
+}

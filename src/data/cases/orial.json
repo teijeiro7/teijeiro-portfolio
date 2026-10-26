@@ -1,0 +1,348 @@
+{
+  "eyebrow": {
+    "en": "Case study · Mobile health",
+    "es": "Caso de estudio · Salud móvil"
+  },
+  "lead": {
+    "en": "A health and performance app that brings nutrition, hydration, caffeine, training and recovery into one daily view. Built with Expo, SQLite and Supabase, with WHOOP, iOS widgets and a bank connection.",
+    "es": "Una app de salud y rendimiento que reúne nutrición, hidratación, cafeína, entrenamiento y recuperación en una sola vista diaria. Construida con Expo, SQLite y Supabase, con WHOOP, widgets de iOS y conexión bancaria."
+  },
+  "specs": [
+    {
+      "label": { "en": "Role", "es": "Rol" },
+      "value": { "en": "Solo design + build", "es": "Diseño + desarrollo en solitario" }
+    },
+    {
+      "label": { "en": "Timeline", "es": "Fecha" },
+      "value": { "en": "2026", "es": "2026" }
+    },
+    {
+      "label": { "en": "Platform", "es": "Plataforma" },
+      "value": { "en": "iOS · Android", "es": "iOS · Android" }
+    },
+    {
+      "label": { "en": "Stack", "es": "Stack" },
+      "value": { "en": "Expo · SQLite · Supabase", "es": "Expo · SQLite · Supabase" }
+    },
+    {
+      "label": { "en": "Status", "es": "Estado" },
+      "value": { "en": "In use", "es": "En uso" },
+      "ok": true
+    },
+    {
+      "label": { "en": "Link", "es": "Enlace" },
+      "value": { "en": "Code private", "es": "Código privado" }
+    }
+  ],
+  "cover": {
+    "icon": "/images/orial-icon.png",
+    "plateTitle": "Orial",
+    "plateSub": {
+      "en": "Health · performance · 2026",
+      "es": "Salud · rendimiento · 2026"
+    },
+    "list": [
+      {
+        "en": "Nutrition, hydration, caffeine",
+        "es": "Nutrición, hidratación, cafeína"
+      },
+      {
+        "en": "Training and WHOOP recovery",
+        "es": "Entrenamiento y recuperación de WHOOP"
+      },
+      {
+        "en": "iOS widgets and bank connection",
+        "es": "Widgets de iOS y conexión bancaria"
+      }
+    ],
+    "caption": {
+      "en": "Orial · identity and product scope, 2026",
+      "es": "Orial · identidad y alcance de producto, 2026"
+    },
+    "alt": {
+      "en": "Orial app icon",
+      "es": "Icono de la app Orial"
+    }
+  },
+  "contentsLabel": {
+    "en": "Contents",
+    "es": "Contenido"
+  },
+  "contents": [
+    {
+      "id": "context",
+      "label": { "en": "Context", "es": "Contexto" }
+    },
+    {
+      "id": "problem",
+      "label": { "en": "Problem", "es": "Problema" }
+    },
+    {
+      "id": "approach",
+      "label": { "en": "Approach", "es": "Enfoque" }
+    },
+    {
+      "id": "architecture",
+      "label": { "en": "Architecture", "es": "Arquitectura" }
+    },
+    {
+      "id": "outcome",
+      "label": { "en": "Outcome", "es": "Resultado" }
+    },
+    {
+      "id": "learned",
+      "label": { "en": "What I learned", "es": "Lo que aprendí" }
+    }
+  ],
+  "blocks": [
+    {
+      "id": "context",
+      "eyebrow": { "en": "Context", "es": "Contexto" },
+      "title": {
+        "en": "Health data is everywhere except in one place.",
+        "es": "Los datos de salud están en todas partes menos en un sitio."
+      },
+      "paragraphs": [
+        {
+          "en": "Meals live in one app, workouts in another, recovery in WHOOP and spending in the bank. Answering a simple question, how am I doing today, means opening four apps and joining the data in your head.",
+          "es": "Las comidas viven en una app, los entrenamientos en otra, la recuperación en WHOOP y el gasto en el banco. Responder una pregunta simple, cómo voy hoy, obliga a abrir cuatro apps y unir los datos en la cabeza."
+        },
+        {
+          "en": "Orial started as a personal tool: one place to log nutrition, water, caffeine and training, read recovery from WHOOP and see the day as a whole. The constraint was physical: the daily log had to work on the metro, with no signal, and open in under a second.",
+          "es": "Orial nació como herramienta personal: un sitio para registrar nutrición, agua, cafeína y entrenamiento, leer la recuperación de WHOOP y ver el día en conjunto. La restricción era física: el registro diario tenía que funcionar en el metro, sin señal, y abrirse en menos de un segundo."
+        }
+      ]
+    },
+    {
+      "id": "problem",
+      "eyebrow": { "en": "Problem", "es": "Problema" },
+      "title": {
+        "en": "Five inputs, one day, two data sources.",
+        "es": "Cinco entradas, un día, dos fuentes de datos."
+      },
+      "paragraphs": [
+        {
+          "en": "The data model spans meals, water, caffeine, training sessions, recovery and transactions. Some of it is typed by hand and must be instant. Some arrives from WHOOP or a bank and must be reconciled. Treating all of it as one remote API would make the app slow and fragile; treating all of it as local would make sync and widgets impossible.",
+          "es": "El modelo de datos cubre comidas, agua, cafeína, sesiones de entrenamiento, recuperación y transacciones. Parte se escribe a mano y tiene que ser instantáneo. Parte llega de WHOOP o del banco y hay que conciliarla. Tratar todo como una única API remota haría la app lenta y frágil; tratar todo como local haría imposibles la sincronización y los widgets."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "5",
+          "label": {
+            "en": "Daily domains in one view",
+            "es": "Dominios diarios en una vista"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+            "en": "External sources: WHOOP + banking",
+            "es": "Fuentes externas: WHOOP + banca"
+          }
+        },
+        {
+          "value": "1",
+          "label": {
+            "en": "Screen for the daily loop",
+            "es": "Pantalla para el ciclo diario"
+          }
+        }
+      ]
+    },
+    {
+      "id": "approach",
+      "eyebrow": { "en": "Approach", "es": "Enfoque" },
+      "title": {
+        "en": "Local where it is typed, synced where it matters.",
+        "es": "Local donde se escribe, sincronizado donde importa."
+      },
+      "paragraphs": [
+        {
+          "en": "The split is deliberate. Logs are written to SQLite first, so the interaction never waits on the network. Supabase owns identity, cross-device sync and the data that external services need to write. Each side has one job.",
+          "es": "La división es deliberada. Los registros se escriben primero en SQLite, así la interacción nunca espera a la red. Supabase se encarga de la identidad, la sincronización entre dispositivos y los datos que los servicios externos necesitan escribir. Cada lado tiene una función."
+        }
+      ],
+      "decisions": [
+        {
+          "n": "01",
+          "title": { "en": "One day, one surface", "es": "Un día, una superficie" },
+          "body": {
+            "en": "The home screen is today's log, not a dashboard. Nutrition, water, caffeine and training sit in the order they happen, with recovery as context rather than a separate destination.",
+            "es": "La pantalla principal es el registro de hoy, no un panel. Nutrición, agua, cafeína y entrenamiento aparecen en el orden en que ocurren, con la recuperación como contexto y no como destino aparte."
+          }
+        },
+        {
+          "n": "02",
+          "title": {
+            "en": "Local-first for the daily loop",
+            "es": "Local-first para el ciclo diario"
+          },
+          "body": {
+            "en": "expo-sqlite is the source of truth for logs. Drizzle gives the schema a TypeScript surface, so a renamed column breaks the build instead of the screen.",
+            "es": "expo-sqlite es la fuente de verdad de los registros. Drizzle da al esquema una superficie TypeScript, así una columna renombrada rompe la build y no la pantalla."
+          }
+        },
+        {
+          "n": "03",
+          "title": {
+            "en": "Integrations behind a boundary",
+            "es": "Integraciones tras una frontera"
+          },
+          "body": {
+            "en": "WHOOP recovery and bank transactions enter through adapters. Screens never call a third party directly, so a provider change is a repository change, not a UI rewrite.",
+            "es": "La recuperación de WHOOP y las transacciones bancarias entran por adaptadores. Las pantallas nunca llaman a un tercero directamente, así un cambio de proveedor es un cambio en el repositorio y no una reescritura de la interfaz."
+          }
+        },
+        {
+          "n": "04",
+          "title": { "en": "Widgets as a contract", "es": "Los widgets como contrato" },
+          "body": {
+            "en": "iOS widgets read a small snapshot prepared by the app, not the whole database. That keeps the extension fast and makes the data it needs explicit.",
+            "es": "Los widgets de iOS leen un snapshot pequeño preparado por la app, no la base de datos entera. Eso mantiene rápida la extensión y deja explícitos los datos que necesita."
+          }
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "eyebrow": { "en": "Architecture", "es": "Arquitectura" },
+      "title": {
+        "en": "One direction of data, two storage layers.",
+        "es": "Una dirección de datos, dos capas de almacenamiento."
+      },
+      "paragraphs": [
+        {
+          "en": "Screens read from hooks, hooks read from repositories, and repositories decide whether a query is local or remote. Nothing above that layer knows which one answered.",
+          "es": "Las pantallas leen de hooks, los hooks leen de repositorios y los repositorios deciden si una consulta es local o remota. Nada por encima de esa capa sabe cuál respondió."
+        }
+      ],
+      "architecture": {
+        "alt": {
+          "en": "Architecture diagram: Expo screens and iOS widgets to typed hooks to repositories and adapters, then Drizzle with SQLite on device and Supabase Postgres in the cloud, with WHOOP and banking as external sources",
+          "es": "Diagrama de arquitectura: pantallas Expo y widgets de iOS hacia hooks tipados, hacia repositorios y adaptadores, después Drizzle con SQLite en el dispositivo y Supabase Postgres en la nube, con WHOOP y la banca como fuentes externas"
+        },
+        "rows": [
+          [
+            {
+              "type": "node",
+              "k": "UI",
+              "text": { "en": "Expo Router + widgets", "es": "Expo Router + widgets" }
+            },
+            { "type": "arrow", "dir": "→" },
+            {
+              "type": "node",
+              "k": "State",
+              "text": { "en": "Typed hooks + queries", "es": "Hooks y queries tipadas" }
+            },
+            { "type": "arrow", "dir": "→" },
+            {
+              "type": "node",
+              "k": "Domain",
+              "text": {
+                "en": "Repositories + adapters",
+                "es": "Repositorios + adaptadores"
+              }
+            },
+            { "type": "arrow", "dir": "→" },
+            {
+              "type": "node",
+              "k": "Data",
+              "text": { "en": "Drizzle + Supabase", "es": "Drizzle + Supabase" },
+              "accent": true
+            },
+            { "type": "arrow", "dir": "→" },
+            {
+              "type": "node",
+              "k": "Storage",
+              "text": { "en": "SQLite + Postgres", "es": "SQLite + Postgres" }
+            }
+          ],
+          [{ "type": "arrow", "dir": "↓" }],
+          [
+            {
+              "type": "node",
+              "k": "WHOOP",
+              "text": { "en": "Recovery sync", "es": "Sincronización de recuperación" }
+            },
+            { "type": "arrow", "dir": "↔" },
+            {
+              "type": "node",
+              "k": "Banking",
+              "text": { "en": "Transactions", "es": "Transacciones" }
+            },
+            { "type": "arrow", "dir": "↔" },
+            {
+              "type": "node",
+              "k": "Widgets",
+              "text": { "en": "Shared snapshot", "es": "Snapshot compartido" }
+            },
+            { "type": "arrow", "dir": "↔" },
+            {
+              "type": "node",
+              "k": "Notifications",
+              "text": { "en": "Local schedule", "es": "Programación local" }
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "outcome",
+      "eyebrow": { "en": "Outcome", "es": "Resultado" },
+      "title": {
+        "en": "The daily loop survives the metro.",
+        "es": "El ciclo diario sobrevive al metro."
+      },
+      "paragraphs": [
+        {
+          "en": "Today Orial logs nutrition, hydration, caffeine and training offline, shows WHOOP recovery next to the day, exposes a compact snapshot to iOS widgets and pulls bank transactions for context. The app is in daily use; the repo stays private while the product and its data boundaries settle.",
+          "es": "Hoy Orial registra nutrición, hidratación, cafeína y entrenamiento sin conexión, muestra la recuperación de WHOOP junto al día, expone un snapshot compacto a los widgets de iOS y trae transacciones bancarias como contexto. La app se usa a diario; el repositorio sigue privado mientras se asientan el producto y sus fronteras de datos."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "Offline",
+          "label": {
+            "en": "Daily logging, by design",
+            "es": "Registro diario, por diseño"
+          }
+        },
+        {
+          "value": "iOS",
+          "label": {
+            "en": "Widgets on the home screen",
+            "es": "Widgets en la pantalla de inicio"
+          }
+        },
+        {
+          "value": "Private",
+          "label": {
+            "en": "Code and product data",
+            "es": "Código y datos del producto"
+          }
+        }
+      ]
+    },
+    {
+      "id": "learned",
+      "eyebrow": { "en": "What I learned", "es": "Lo que aprendí" },
+      "title": {
+        "en": "A health app is a data model before it is a chart.",
+        "es": "Una app de salud es un modelo de datos antes que un gráfico."
+      },
+      "paragraphs": [
+        {
+          "en": "The hard part was not drawing the day; it was deciding which data is authoritative, which is derived and which may arrive late. Once those boundaries were explicit, the screens became simple. The next step is sharper insight from the data already there, not more inputs: weekly trends, recovery against training load and a clearer read on spending.",
+          "es": "Lo difícil no fue dibujar el día; fue decidir qué dato es autoritativo, cuál es derivado y cuál puede llegar tarde. Cuando esas fronteras quedaron explícitas, las pantallas se volvieron simples. El siguiente paso es sacar más conclusiones de los datos que ya existen, no añadir entradas: tendencias semanales, recuperación frente a carga de entrenamiento y una lectura más clara del gasto."
+        }
+      ]
+    }
+  ],
+  "next": {
+    "label": { "en": "Next record · 02", "es": "Siguiente registro · 02" },
+    "title": "Smashly",
+    "href": "/work",
+    "cta": { "en": "See the archive", "es": "Ver el archivo" }
+  }
+}
